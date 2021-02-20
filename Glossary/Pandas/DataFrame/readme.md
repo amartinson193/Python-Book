@@ -15,6 +15,7 @@
 
 <details>
 <summary>info</summary>
+ 
  [Doc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html?highlight=info#pandas.DataFrame.info )
  * Find general information like dtypes and non-null counts 
  * See also describe
