@@ -1,6 +1,16 @@
 # Notes
 
-# Glossary
+[Docs - Full list of methods + attributes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
+
+# Attributes
+
+* shape
+* columns
+* index
+* values
+* dtypes
+
+# Methods
 
 ## A
 <details> --------------------------------------------
