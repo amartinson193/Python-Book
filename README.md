@@ -1,5 +1,11 @@
 # Python-Book
 
+## Cheatsheets
+[Python Crash Course](https://ehmatthes.github.io/pcc/cheatsheets/README.html)       
+[Datacamp cheat sheets](https://www.datacamp.com/community/data-science-cheatsheets?page=3)   
+[Dataquest cheat sheets](https://sinxloud.com/python-cheat-sheet-beginner-advanced/)
+[W3Schools](https://www.w3schools.com/python/python_ref_dictionary.asp)
+
 ## Blogs
 [Mathematical Python](https://www.math.ubc.ca/~pwalls/math-python/)
 
