@@ -5,7 +5,6 @@
 # Attributes
 
 * shape
-    * test
 * columns
 * index
 * values
