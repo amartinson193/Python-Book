@@ -2,10 +2,7 @@
 
 # Glossary
 
-<details>
-<summary></summary>
-</details>
-
+## A
 <details> --------------------------------------------
 <summary>add</summary>
 </details>
@@ -30,10 +27,12 @@
 <summary>astype</summary>
 </details>
 
+## B
 <details> --------------------------------------------
 <summary>bfill</summary>
 </details>
 
+## C
 <details> --------------------------------------------
 <summary>copy</summary>
  
@@ -45,6 +44,7 @@
 <summary>corr</summary>
 </details>
 
+## D
 <details> --------------------------------------------
 <summary>describe</summary>
 </details>
@@ -69,18 +69,22 @@
 <summary>duplicated</summary>
 </details>
 
+## E
 <details> --------------------------------------------
 <summary>expanding</summary>
 </details>
 
+## F
 <details> --------------------------------------------
 <summary>fillna</summary>
 </details>
 
+## G
 <details> --------------------------------------------
 <summary>groupby</summary>
 </details>
 
+## I
 <details> --------------------------------------------
 <summary>iloc</summary>
 </details>
@@ -105,10 +109,12 @@
 <summary>iterrows</summary>
 </details>
 
+## L
 <details> --------------------------------------------
 <summary>loc</summary>
 </details>
 
+## M
 <details> --------------------------------------------
 <summary>map</summary>
 </details>
@@ -145,6 +151,7 @@
 <summary>mul</summary>
 </details>
 
+## N
 <details> --------------------------------------------
 <summary>nlargest</summary>
 </details>
@@ -153,6 +160,7 @@
 <summary>notna</summary>
 </details>
 
+## P
 <details> --------------------------------------------
 <summary>pct_change</summary>
 </details>
@@ -161,10 +169,12 @@
 <summary>pivot_table</summary>
 </details>
 
+## Q
 <details> --------------------------------------------
 <summary>quantile</summary>
 </details>
 
+## R
 <details> --------------------------------------------
 <summary>reindex</summary>
 </details>
@@ -193,6 +203,7 @@
 <summary>round</summary>
 </details>
 
+## S
 <details> --------------------------------------------
 <summary>sample</summary>
 </details>
@@ -229,6 +240,7 @@
 <summary>sum</summary>
 </details>
 
+## T
 <details> --------------------------------------------
 <summary>to_dict</summary>
 </details>
@@ -237,6 +249,7 @@
 <summary>transform</summary>
 </details>
 
+## U
 <details> --------------------------------------------
 <summary>unique</summary>
 </details>
@@ -245,6 +258,7 @@
 <summary>unstack</summary>
 </details>
 
+## V
 <details> --------------------------------------------
 <summary>value_counts</summary>
 </details>
