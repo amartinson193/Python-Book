@@ -1,6 +1,7 @@
 # Python-Book
 
 ## Blogs
+[Mathematical Python](https://www.math.ubc.ca/~pwalls/math-python/)
 
 ## Books
 *Put an x next to the books I've read*
