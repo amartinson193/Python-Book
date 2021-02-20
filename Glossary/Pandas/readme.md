@@ -14,13 +14,13 @@
   <details>
     <summary>Attributes</summary>
 
-  Shape         
-  Columns     
-  Index     
+Shape         
+Columns     
+Index     
   * Returns the row labels in the dataframe     
-  Values    
+Values    
   * Returns a numpy array     
-  Dtypes    
+Dtypes    
   * This can be dtype or dtypes when using Series, but should be dtype to prevent errors with some keywords such as assert. This is only dtypes when using dataframes     
   </details>
 
