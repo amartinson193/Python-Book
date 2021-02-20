@@ -6,6 +6,9 @@
 
 [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
 
+## Learning Resources
+*Put date I completed each one*
+
 ## Glossary
 
 <details>
