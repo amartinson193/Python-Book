@@ -3,10 +3,10 @@
 [Docs - Full list of methods + attributes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)    
 [Using text in Pandas Tutorial](https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html )
 
-To select columns as a dataframe use [[]]
-To select columns as a series use []
-To select a multi-index use tuples
-
+To select columns as a dataframe use [[]]    
+To select columns as a series use []     
+To select a multi-index use tuples     
+     
 # Attributes
 
 * shape
