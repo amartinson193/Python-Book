@@ -140,6 +140,7 @@ To select a multi-index use tuples
 
 <details> --------------------------------------------
 <summary>mean</summary>
+     
      [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html)
      **Notes**
      * Mean can be used on strings 
