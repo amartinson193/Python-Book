@@ -247,7 +247,7 @@ DataFrame.mean(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)
      
 DataFrame.size           
 [Docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html?highlight=size#pandas.DataFrame.size )        
-**Notes**      
+**Notes**
 * Number of rows if Series or the number of columns * rows if dataframe 
 </details>
 
