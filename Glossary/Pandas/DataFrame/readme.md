@@ -50,9 +50,13 @@ To select a multi-index use tuples
 ## C
 <details> --------------------------------------------
 <summary>copy</summary>
- 
- [Doc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.copy.html?highlight=copy#pandas.DataFrame.copy)
+          
+ DataFrame.copy(deep=True)         
+ [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.copy.html?highlight=copy#pandas.DataFrame.copy)         
+          
+ **Notes**
  * Manipulate the dataset without changing the original data 
+ * Also for Series/Index
 </details>
 
 <details> --------------------------------------------
@@ -106,10 +110,14 @@ To select a multi-index use tuples
 
 <details> --------------------------------------------
 <summary>info</summary>
- 
- [Doc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html?highlight=info#pandas.DataFrame.info )
+      
+ DataFrame.info(verbose=None, buf=None, max_cols=None, memory_usage=None, show_counts=None, null_counts=None)          
+ [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html?highlight=info#pandas.DataFrame.info )         
+          
+ **Notes**
  * Find general information like dtypes and non-null counts 
  * See also describe
+ * Similar to summary in R
 </details>
 
 <details> --------------------------------------------
@@ -180,6 +188,22 @@ DataFrame.mean(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)
 ## N
 <details> --------------------------------------------
 <summary>nlargest</summary>
+         
+DataFrame.nlargest(n, columns, keep='first')           
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.nlargest.html)   
+     
+**Parameters**
+* N(required) = integer of the number of largest values in desc order 
+* Columns(required) = label or list of labels 
+* Keep ('first','last', or 'all'): If duplicates, which occurrence do you keep 
+          
+**Notes**          
+* Get the top 5 in a data frame
+* Select the first or second row of a groupby 
+     * https://stackoverflow.com/questions/20067636/pandas-dataframe-get-first-row-of-each-group 
+     * .first() 
+     * .nth() 
+     * .head()  
 </details>
 
 <details> --------------------------------------------
