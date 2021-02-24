@@ -243,6 +243,15 @@ DataFrame.mean(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)
 </details>
 
 <details> --------------------------------------------
+<summary>size</summary>       
+     
+DataFrame.size           
+[Docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html?highlight=size#pandas.DataFrame.size )        
+**Notes**      
+* Number of rows if Series or the number of columns * rows if dataframe 
+</details>
+
+<details> --------------------------------------------
 <summary>smallest</summary>
 </details>
 
