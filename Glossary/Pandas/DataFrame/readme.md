@@ -256,6 +256,10 @@ DataFrame.mean(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)
 
 <details> --------------------------------------------
 <summary>std</summary>
+     
+DataFrame.std(axis=None, skipna=None, level=None, ddof=1, numeric_only=None, **kwargs)         
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.std.html)        
+
 </details>
 
 <details> --------------------------------------------
