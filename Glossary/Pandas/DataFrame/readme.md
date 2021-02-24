@@ -61,6 +61,16 @@ To select a multi-index use tuples
 
 <details> --------------------------------------------
 <summary>corr</summary>
+     
+DataFrame.corr(method='pearson', min_periods=1)     
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html?highlight=corr#pandas.DataFrame.corr )    
+     
+**Parameters**     
+* Method (opt) = (‘pearson’, ‘kendall’, ‘spearman’}) 
+* Min_periods (opt) = the minimum number of observations to compute a correlation, only available for pearson and spearman 
+     
+**Notes**
+* This only works for linear relationships. It will underestimate non-linear relationships. 
 </details>
 
 ## D
@@ -95,7 +105,21 @@ To select a multi-index use tuples
 
 ## F
 <details> --------------------------------------------
-<summary>fillna</summary>
+<summary>fillna</summary>.
+     
+DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None) 
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html?highlight=fillna)        
+          
+**Parameters**
+* Value (partial req; value or method) = The number/string to use as a filler, can also be a dictionary 
+     * e.g. To fill with the mean, you would do something like  
+```
+rating_mean= wine['rating'].mean() 
+wine_imputed= wine.fillna({'rating': rating_mean})
+```
+     
+**Notes**     
+* Fill missing values 
 </details>
 
 ## G
@@ -208,6 +232,18 @@ DataFrame.nlargest(n, columns, keep='first')
 
 <details> --------------------------------------------
 <summary>notna</summary>
+</details>
+
+<details> --------------------------------------------
+<summary>nsmallest</summary>
+      
+DataFrame.nsmallest(n, columns, keep='first')          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.nsmallest.html)      
+          
+**Parameters**
+* N(required) = integer of the number of largest values in desc order 
+* Columns(required) = label or list of labels 
+* Keep ('first','last', or 'all'): If duplicates, which occurrence do you keep 
 </details>
 
 ## P
