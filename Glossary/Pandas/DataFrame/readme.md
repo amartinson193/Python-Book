@@ -135,7 +135,11 @@ To select a multi-index use tuples
 </details>
 
 <details> --------------------------------------------
-<summary>max</summary>
+<summary>max</summary>    
+     
+DataFrame.max(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)       
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html?highlight=max#pandas.DataFrame.max )       
+ 
 </details>
 
 <details> --------------------------------------------
