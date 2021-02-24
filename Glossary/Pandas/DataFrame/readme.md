@@ -141,7 +141,7 @@ To select a multi-index use tuples
 <details> --------------------------------------------
 <summary>mean</summary>
      
-DataFrame.mean(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)
+DataFrame.mean(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)     
 [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html)   
      
 **Notes**     
