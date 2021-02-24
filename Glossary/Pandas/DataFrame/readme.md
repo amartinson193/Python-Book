@@ -107,8 +107,8 @@ DataFrame.corr(method='pearson', min_periods=1)
 <details> --------------------------------------------
 <summary>fillna</summary>.
      
-DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None) 
-[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html?highlight=fillna)        
+DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None)           
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html?highlight=fillna)            
           
 **Parameters**
 * Value (partial req; value or method) = The number/string to use as a filler, can also be a dictionary 
