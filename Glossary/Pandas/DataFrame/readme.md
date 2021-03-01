@@ -210,6 +210,9 @@ DataFrame.index: Index
 <details> --------------------------------------------
 <summary>groupby</summary>
      
+DataFrame.groupby(by=None, axis=0, level=None, as_index=True, sort=True, group_keys=True, squeeze=<object object>, observed=False, dropna=True)              
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html)            
+     
 </details>   
 
 <details> --------------------------------------------
