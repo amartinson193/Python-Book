@@ -112,6 +112,8 @@ DataFrame.corr(method='pearson', min_periods=1)
      * Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include. 
      * Has to be a list 
 
+**Notes**      
+* Also applies to Series and Index
 </details>
 
 <details> --------------------------------------------
