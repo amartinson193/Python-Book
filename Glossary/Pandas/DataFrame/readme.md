@@ -210,9 +210,15 @@ DataFrame.index: Index
 <details> --------------------------------------------
 <summary>groupby</summary>
      
-DataFrame.groupby(by=None, axis=0, level=None, as_index=True, sort=True, group_keys=True, squeeze=object object, observed=False, dropna=True)              
-[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html)            
+DataFrame.groupby(by=None, axis=0, level=None, as_index=True, sort=True, group_keys=True, squeeze=\lesserthanhere object object \greaterthanhere, observed=False, dropna=True)       
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html)              
      
+**Notes**       
+* User guide: https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html   
+* Another reference: https://realpython.com/pandas-groupby/   
+* Sort within a groupby : https://medium.com/@arccoder/pandas-sort-within-groups-e1f3b6a10a3f   
+* E.g. grouped2 = grouped.groupby('year').apply(lambda x: x.sort_values(['set_num'],ascending=False))   
+* If specifying more than one aggregation in agg, you need a list  
 </details>   
 
 <details> --------------------------------------------
