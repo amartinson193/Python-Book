@@ -199,8 +199,7 @@ DataFrame.groupby(by=None, axis=0, level=None, as_index=True, sort=True, group_k
 * Another reference: https://realpython.com/pandas-groupby/ 
 * Sort within a groupby : https://medium.com/@arccoder/pandas-sort-within-groups-e1f3b6a10a3f 
 * E.g. grouped2 = grouped.groupby('year').apply(lambda x: x.sort_values(['set_num'],ascending=False)) 
-* If specifying more than one aggregation in agg, you need a list 
-</details>
+* If specifying more than one aggregation in agg, you need a list
 </details>
      
 ## I
@@ -408,7 +407,10 @@ DataFrame.query(expr, inplace=False, **kwargs)
 **Notes**
 * Restrict the data using SQL where-like statements 
      * Dataframe.query() 
-
+          * Enter a SQL-like statement in quotes 
+          * Need == instead of one = to say something is equal to 
+          * Double quotes are also needed around words 
+          * Used to unintentionally ending the statement 
 </details>
 
 <details> --------------------------------------------
