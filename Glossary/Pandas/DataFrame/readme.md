@@ -93,9 +93,9 @@ DataFrame.corr(method='pearson', min_periods=1)
 <details> --------------------------------------------
 <summary>dropna</summary>
  
- DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
- [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html?highlight=dropna#pandas.DataFrame.dropna)
- 
+ DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)        
+ [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html?highlight=dropna#pandas.DataFrame.dropna)        
+          
 **Parameters**
 * axis{0 or ‘index’, 1 or ‘columns’}, default 0 
      * Determine if rows or columns which contain missing values are removed. 
