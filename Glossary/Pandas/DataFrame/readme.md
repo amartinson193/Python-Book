@@ -318,6 +318,21 @@ DataFrame.mean(axis=None, skipna=None, level=None, numeric_only=None, **kwargs)
 
 <details> --------------------------------------------
 <summary>melt</summary>
+     
+DataFrame.melt(id_vars=None, value_vars=None, var_name=None, value_name='value', col_level=None, ignore_index=True)          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html?highlight=melt#pandas.DataFrame.melt)     
+
+**Notes**
+* See also reset_index() 
+* Example: 
+```
+import pandas as pd 
+df = pd.DataFrame( 
+    {'id':range(1,4), 'var_day':['Monday','Tuesday','Wednesday'], 'Week':[11,12,13]} 
+) 
+print(df,'\n') 
+print(df.melt(id_vars='id', value_vars='Week', var_name='VARIABLE',value_name='VALUE')) 
+```
 </details>
 
 <details> --------------------------------------------
@@ -396,6 +411,26 @@ DataFrame.pct_change(periods=1, fill_method='pad', limit=None, freq=None, **kwar
 
 <details> --------------------------------------------
 <summary>pivot_table</summary>
+     
+pandas.pivot_table(data, values=None, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False, dropna=True, margins_name='All', observed=False)          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.pivot_table.html?highlight=pivot_table#removepandas.pivot_table)     
+     
+**Notes** 
+* Pivot a Table 
+```
+table = pd.pivot_table(df, values=['D', 'E'], index=['A', 'C'], 
+...                     aggfunc={'D': np.mean, 
+...                              'E': np.mean}) 
+>>> table 
+                D         E 
+A   C 
+bar large  5.500000  7.500000 
+    small  5.500000  8.500000 
+foo large  2.000000  4.500000 
+    small  2.333333  4.333333 
+```
+* Just remember: value, index, column, aggfunc 
+* Need to do dataframe.pivot_table, otherwise include data argument in the pivot table function 
 </details>
 
 ## Q
