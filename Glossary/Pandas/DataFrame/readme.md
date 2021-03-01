@@ -92,6 +92,26 @@ DataFrame.corr(method='pearson', min_periods=1)
 
 <details> --------------------------------------------
 <summary>dropna</summary>
+ 
+ DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
+ [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html?highlight=dropna#pandas.DataFrame.dropna)
+ 
+**Parameters**
+* axis{0 or ‘index’, 1 or ‘columns’}, default 0 
+     * Determine if rows or columns which contain missing values are removed. 
+     * 0, or ‘index’ : Drop rows which contain missing values. 
+     * 1, or ‘columns’ : Drop columns which contain missing value. 
+     * Changed in version 1.0.0: Pass tuple or list to drop on multiple axes. Only a single axis is allowed. 
+* how{‘any’, ‘all’}, default ‘any’ 
+     * Determine if row or column is removed from DataFrame, when we have at least one NA or all NA. 
+* ‘any’ : If any NA values are present, drop that row or column. 
+* ‘all’ : If all values are NA, drop that row or column. 
+* thresh: int, optional 
+     * Require that many non-NA values. 
+* Subset = array-like, optional 
+     * Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include. 
+     * Has to be a list 
+
 </details>
 
 <details> --------------------------------------------
