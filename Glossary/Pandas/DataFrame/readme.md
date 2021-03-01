@@ -488,7 +488,7 @@ DataFrame.set_index(keys, drop=True, append=False, inplace=False, verify_integri
 <details> --------------------------------------------
 <summary>shift</summary>
      
-DataFrame.shift(periods=1, freq=None, axis=0, fill_value=<object object>)     
+DataFrame.shift(periods=1, freq=None, axis=0, fill_value=\lesserthanhere object object \greaterthanhere)     
 [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.shift.html?highlight=shift#pandas.DataFrame.shift)  
      
 **Notes**
