@@ -186,7 +186,7 @@ wine_imputed= wine.fillna({'rating': rating_mean})
 **Notes**     
 * Fill missing values 
 </details>
-
+     
 ## G
 <details> --------------------------------------------
 <summary>groupby</summary>
@@ -200,9 +200,8 @@ DataFrame.groupby(by=None, axis=0, level=None, as_index=True, sort=True, group_k
 * Sort within a groupby : https://medium.com/@arccoder/pandas-sort-within-groups-e1f3b6a10a3f 
 * E.g. grouped2 = grouped.groupby('year').apply(lambda x: x.sort_values(['set_num'],ascending=False)) 
 * If specifying more than one aggregation in agg, you need a list 
-
 </details>
-
+     
 ## I
 <details> --------------------------------------------
 <summary>iloc</summary>
