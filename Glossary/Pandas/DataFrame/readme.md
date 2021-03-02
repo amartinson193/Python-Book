@@ -138,7 +138,7 @@ DataFrame.corr(method='pearson', min_periods=1)
 </details>
 
 <details> --------------------------------------------
-<summary>corr</summary>
+<summary>count</summary>
      
 DataFrame.count(axis=0, level=None, numeric_only=False)          
 [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html?highlight=count#pandas.DataFrame.count)       
@@ -319,6 +319,7 @@ DataFrame.groupby(by=None, axis=0, level=None, as_index=True, sort=True, group_k
 * If specifying more than one aggregation in agg, you need a list  
 </details>   
 
+## I
 <details> --------------------------------------------
 <summary>info</summary>
       
@@ -343,8 +344,11 @@ DataFrame.isin(values)
 
 <details> --------------------------------------------
 <summary>isna</summary>
+     
+DataFrame.isna()         
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isna.html?highlight=isna#pandas.DataFrame.isna        
 </details>
-
+     
 <details> --------------------------------------------
 <summary>iterrows</summary>
 
@@ -816,16 +820,10 @@ DataFrame.size
 </details>
 
 <details> --------------------------------------------
-<summary>smallest</summary>
-</details>
-
-<details> --------------------------------------------
 <summary>sort_index</summary>
      
 DataFrame.sort_index(axis=0, level=None, ascending=True, inplace=False, kind='quicksort', na_position='last', sort_remaining=True, ignore_index=False, key=None)          
 [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_index.html?highlight=sort_index#pandas.DataFrame.sort_index)
-     
-     
 </details>
 
 <details> --------------------------------------------
