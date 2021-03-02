@@ -406,10 +406,25 @@ print(non_top_genres.head())
 
 <details> --------------------------------------------
 <summary>merge_asof</summary>
+          
+pandas.merge_asof(left, right, on=None, left_on=None, right_on=None, left_index=False, right_index=False, by=None, left_by=None, right_by=None, suffixes=('_x', '_y'), tolerance=None, allow_exact_matches=True, direction='backward')                    
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge_asof.html)      
+     
+**Notes**
+* Fuzzy Matching - How to join on non-exact fields, such as date time 
+     * Use the merge_asof method 
+   
 </details>
 
 <details> --------------------------------------------
 <summary>merge_ordered</summary>
+                 
+pandas.merge_ordered(left, right, on=None, left_on=None, right_on=None, left_by=None, right_by=None, fill_method=None, suffixes=('_x', '_y'), how='outer')      
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge_ordered.html?highlight=merge_ordered#pandas.merge_ordered)        
+
+**Notes**
+* How to forward/back fill
+     * Use the fill_method arg of dataframe.pandas.merge_ordered     
 </details>
 
 <details> --------------------------------------------
@@ -548,6 +563,48 @@ DataFrame.rename(mapper=None, index=None, columns=None, axis=None, copy=True, in
 
 <details> --------------------------------------------
 <summary>resample</summary>
+     
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html?highlight=resample#pandas.DataFrame.resample)              
+DataFrame.resample(rule, axis=0, closed=None, label=None, convention='start', kind=None, loffset=None, base=None, on=None, level=None, origin='start_day', offset=None)        
+     
+**Parameters**
+* Rule = [DateOffset, Timedelta or str]; The offset string or object representing target conversion. 
+     * e.g. 'M' for month 
+     * Here is a list of all the rules (source: https://stackoverflow.com/questions/17001389/pandas-resample-documentation) 
+``` 
+B business day frequency 
+C custom business day frequency (experimental) 
+D calendar day frequency 
+W weekly frequency 
+M month end frequency 
+SM semi-month end frequency (15th and end of month) 
+BM business month end frequency 
+CBM custom business month end frequency 
+MS month start frequency 
+SMS semi-month start frequency (1st and 15th) 
+BMS business month start frequency 
+CBMS custom business month start frequency 
+Q quarter end frequency 
+BQ business quarter endfrequency 
+QS quarter start frequency 
+BQS business quarter start frequency 
+A year end frequency 
+BA, BY business year end frequency 
+AS, YS year start frequency 
+BAS, BYS business year start frequency 
+BH business hour frequency 
+H hourly frequency 
+T, minminutely frequency 
+S secondly frequency 
+L, ms milli seconds 
+U, us microseconds 
+N nanoseconds 
+```
+     
+**Notes**
+* Pandas.dataframe.resample 
+* Makes grouping by month or any other time period really easy 
+* Meant for time series 
 </details>
 
 <details> --------------------------------------------
@@ -616,6 +673,14 @@ DataFrame.size
 
 <details> --------------------------------------------
 <summary>sort_values</summary>
+     
+DataFrame.sort_values(by, axis=0, ascending=True, inplace=False, kind='quicksort', na_position='last', ignore_index=False, key=None)             
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html)     
+     
+**Parameters**
+* Key
+     * Apply the key function to the values before sorting. This is similar to the key argument in the builtin sorted() function, with the notable difference that this key function should be vectorized. It should expect a Series and return a Series with the same shape as the input. It will be applied to each column in by independently. 
+     
 </details>
 
 <details> --------------------------------------------
