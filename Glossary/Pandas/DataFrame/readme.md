@@ -39,6 +39,15 @@ DataFrame.agg(func=None, axis=0, *args, **kwargs)
 </details>
 
 <details> --------------------------------------------
+<summary>any</summary>
+     
+DataFrame.any(axis=0, bool_only=None, skipna=True, level=None, **kwargs**)        
+[Docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.any.html?highlight=any#pandas.DataFrame.any)       
+     
+**Notes**
+* It essentially can flatten a list of boolean values into one True or one False 
+</details>
+<details> --------------------------------------------
 <summary>append</summary>
      
 DataFrame.append(other, ignore_index=False, verify_integrity=False, sort=False)           
@@ -75,11 +84,31 @@ DataFrame.assign(**kwargs)
 
 <details> --------------------------------------------
 <summary>astype</summary>
+     
+DataFrame.astype(dtype, copy=True, errors='raise')               
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.astype.html?highlight=astype#pandas.DataFrame.astype)         
+     
+**Notes**
+* Converting type of a column for a dataframe 
+     * .astype(keyword for type that you need (int, str, etc...)) 
+* Converting type 
+     * .astype() 
+     * E.g. convert to string 
+          * .astype('str') 
+* Converting to a category can be two things: 
+```
+cat_dtype = pd.api.types.CategoricalDtype(categories=[2, 1], ordered=True) 
+>>> ser.astype(cat_dtype) OR 
+Ser.astype(type='category', ordered = True, categories = categories) 
+```
 </details>
 
 ## B
 <details> --------------------------------------------
 <summary>bfill</summary>
+     
+DataFrame.bfill(axis=None, inplace=False, limit=None, downcast=None)            
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.bfill.html?highlight=bfill#pandas.DataFrame.bfill)     
 </details>
 
 ## C
@@ -108,6 +137,13 @@ DataFrame.corr(method='pearson', min_periods=1)
 * This only works for linear relationships. It will underestimate non-linear relationships. 
 </details>
 
+<details> --------------------------------------------
+<summary>corr</summary>
+     
+DataFrame.count(axis=0, level=None, numeric_only=False)          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html?highlight=count#pandas.DataFrame.count)       
+
+</details>
 ## D
 <details> --------------------------------------------
 <summary>describe</summary>
@@ -184,9 +220,22 @@ Series.drop_duplicates(keep='first', inplace=False)
 
 <details> --------------------------------------------
 <summary>duplicated</summary>
+     
+DataFrame.duplicated(subset=None, keep='first')             
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.duplicated.html?highlight=duplicated#pandas.DataFrame.duplicated)       
+     
+**Notes**
+* Can use this to get a list of the duplicated values 
 </details>
 
 ## E
+
+<details> --------------------------------------------
+<summary>equals</summary>
+     
+DataFrame.equals(other)            
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.equals.html?highlight=equals#pandas.DataFrame.equals)     
+</details>  
 <details> --------------------------------------------
 <summary>expanding</summary>
           
@@ -233,6 +282,25 @@ DataFrame.index: Index
 [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.index.html?highlight=index#pandas.DataFrame.index)
      
      
+</details>
+
+<details> --------------------------------------------
+<summary>isna</summary>
+     
+DataFrame.isna()              
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isna.html?highlight=isna#pandas.DataFrame.isna)          
+     
+**Notes**
+* Returns all values as boolean 
+* Count the number of nulls in pandas 
+     * .isna().sum() 
+     * Isnull().sum() 
+* Isnull is an alias of isna 
+* dataframe.isna().any() 
+     * Tells you if there are any na's by column 
+     * Not above 
+* dataframe.isna().fillna(0) 
+
 </details>
 
 
@@ -367,6 +435,13 @@ print(df.melt(id_vars='id', value_vars='Week', var_name='VARIABLE',value_name='V
 
 <details> --------------------------------------------
 <summary>memory_usage</summary>
+     
+DataFrame.memory_usage(index=True, deep=False)              
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.memory_usage.html?highlight=memory_usage#pandas.DataFrame.memory_usage)      
+     
+**Notes**
+* Returns the memory usage by column 
+
 </details>
 
 <details> --------------------------------------------
@@ -503,6 +578,18 @@ DataFrame.pct_change(periods=1, fill_method='pad', limit=None, freq=None, **kwar
 * Use previous rows in calculating percent change 
 </details>
 
+
+<details> --------------------------------------------
+<summary>pivot</summary>
+     
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html)      
+DataFrame.pivot(index=None, columns=None, values=None)      
+     
+**Notes**
+* Only has 3 inputs and is a lower-level form of pivot_table 
+* Does not support aggregation, multiple values create a hierarchical index 
+  
+</details> 
 <details> --------------------------------------------
 <summary>pivot_table</summary>
      
@@ -531,6 +618,14 @@ foo large  2.000000  4.500000
 <details> --------------------------------------------
 <summary>quantile</summary>
      
+DataFrame.quantile(q=0.5, axis=0, numeric_only=True, interpolation='linear')                
+[Docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.quantile.html?highlight=quantile#pandas.DataFrame.quantile)     
+
+</details>
+
+<details> --------------------------------------------
+<summary>query</summary>
+     
 DataFrame.query(expr, inplace=False, **kwargs)              
 [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.query.html?highlight=query#pandas.DataFrame.query)
 
@@ -540,16 +635,21 @@ DataFrame.query(expr, inplace=False, **kwargs)
           * Enter a SQL-like statement in quotes 
           * Need == instead of one = to say something is equal to 
           * Double quotes are also needed around words 
-          * Used to unintentionally ending the statement 
-</details>
-
-<details> --------------------------------------------
-<summary>query</summary>
+          * Used to unintentionally ending the statement      
 </details>
 
 ## R
 <details> --------------------------------------------
 <summary>reindex</summary>
+     
+DataFrame.reindex(labels=None, index=None, columns=None, axis=None, method=None, copy=True, level=None, fill_value=nan, limit=None, tolerance=None)             
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.reindex.html?highlight=reindex#pandas.DataFrame.reindex)     
+     
+**Notes**
+* Reindex a dataframe 
+* Cols = ['a', 'b', 'c', 'd', 'e'] 
+* Df = df.reindex(cols) 
+
 </details>
 
 <details> --------------------------------------------
@@ -573,6 +673,34 @@ DataFrame.rename(mapper=None, index=None, columns=None, axis=None, copy=True, in
 
 <details> --------------------------------------------
 <summary>replace</summary>
+     
+Series.replace(to_replace=None, value=None, inplace=False, limit=None, regex=False, method='pad')             
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.replace.html?highlight=replace#pandas.DataFrame.replace)      
+     
+**Parameters**
+* to_replace = str, regex, list, dict, Series, int, float, or None 
+     * string to be replaced 
+     * How to find the values that will be replaced. 
+     * numeric, str or regex: 
+          * numeric: numeric values equal to to_replace will be replaced with value 
+          * str: string exactly matching to_replace will be replaced with value 
+          * regex: regexs matching to_replace will be replaced with value 
+     * list of str, regex, or numeric: 
+          * First, if to_replace and value are both lists, they must be the same length. 
+          * Second, if regex=True then all of the strings in both lists will be interpreted as regexs otherwise they will match directly. This doesn’t matter much for value since there are only a few possible substitution regexes you can use. 
+          * str, regex and numeric rules apply as above. 
+     * dict: 
+          * Dicts can be used to specify different replacement values for different existing values. For example, {'a': 'b', 'y': 'z'} replaces the value ‘a’ with ‘b’ and ‘y’ with ‘z’. To use a dict in this way the value parameter should be None. 
+          * For a DataFrame a dict can specify that different values should be replaced in different columns. For example, {'a': 1, 'b': 'z'} looks for the value 1 in column ‘a’ and the value ‘z’ in column ‘b’ and replaces these values with whatever is specified in value. The value parameter should not be None in this case. You can treat this as a special case of passing two lists except that you are specifying the column to search in. 
+          * For a DataFrame nested dictionaries, e.g., {'a': {'b': np.nan}}, are read as follows: look in column ‘a’ for the value ‘b’ and replace it with NaN. The value parameter should be None to use a nested dict in this way. You can nest regular expressions as well. Note that column names (the top-level dictionary keys in a nested dictionary) cannot be regular expressions. 
+     * None: 
+          * This means that the regex argument must be a string, compiled regular expression, or list, dict, ndarray or Series of such elements. If value is also None then this must be a nested dictionary or Series. 
+* See the examples section for examples of each of these. 
+* Value = string to replace text of value to be replaced 
+     
+**Notes**
+* The bitwise | operator (or) works when looking at Strings 
+* See also Pandas.DataFrame.map 
 </details>
 
 <details> --------------------------------------------
@@ -641,11 +769,21 @@ DataFrame.rolling(window, min_periods=None, center=False, win_type=None, on=None
 
 <details> --------------------------------------------
 <summary>round</summary>
+     
+DataFrame.round(decimals=0, *args*, **kwargs**)      
+[Docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.round.html?highlight=round#pandas.DataFrame.round)      
+     
+**Notes**
+* Can also round each column separately 
+
 </details>
 
 ## S
 <details> --------------------------------------------
 <summary>sample</summary>
+     
+DataFrame.sample(n=None, frac=None, replace=False, weights=None, random_state=None, axis=None)           
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html?highlight=sample#pandas.DataFrame.sample)     
 </details>
 
 <details> --------------------------------------------
@@ -683,6 +821,11 @@ DataFrame.size
 
 <details> --------------------------------------------
 <summary>sort_index</summary>
+     
+DataFrame.sort_index(axis=0, level=None, ascending=True, inplace=False, kind='quicksort', na_position='last', sort_remaining=True, ignore_index=False, key=None)          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_index.html?highlight=sort_index#pandas.DataFrame.sort_index)
+     
+     
 </details>
 
 <details> --------------------------------------------
@@ -719,28 +862,50 @@ DataFrame.subtract(other, axis='columns', level=None, fill_value=None)
 
 <details> --------------------------------------------
 <summary>sum</summary>
+     
+DataFrame.sum(axis=None, skipna=None, level=None, numeric_only=None, min_count=0, **kwargs**)    
+[Docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sum.html?highlight=sum#pandas.DataFrame.sum)       
+
 </details>
 
 ## T
 <details> --------------------------------------------
 <summary>to_dict</summary>
+     
+DataFrame.to_dict(orient='dict', into=<class 'dict'>)            
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_dict.html?highlight=to_dict#pandas.DataFrame.to_dict)      
+
 </details>
 
 <details> --------------------------------------------
 <summary>transform</summary>
      
-DataFrameGroupBy.transform(func, *args, engine=None, engine_kwargs=None, **kwargs)     
+DataFrameGroupBy.transform(func, *args*, engine=None, engine_kwargs=None, **kwargs**)     
 [Docs] (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.core.groupby.DataFrameGroupBy.transform.html?highlight=transform#pandas.core.groupby.DataFrameGroupBy.transform)
-
-
+     
+**Notes**
+* Turn a dataframe into a dictionary 
+* By argument specifies if you want a nested dictionary (default) or a list or something else 
 </details>
 
 ## U
 <details> --------------------------------------------
 <summary>unstack</summary>
+     
+DataFrame.unstack(level=- 1, fill_value=None)               
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.unstack.html?highlight=unstack#pandas.DataFrame.unstack) 
+     
+**Notes**
+* Pivot a multi-index into a dataframe 
 </details>
 
 ## V
 <details> --------------------------------------------
 <summary>value_counts</summary>
+     
+DataFrame.value_counts(subset=None, normalize=False, sort=True, ascending=False)               
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.value_counts.html?highlight=value_counts#pandas.DataFrame.value_counts)   
+     
+**Notes**
+* Series value counts has diff params 
 </details>
