@@ -147,6 +147,13 @@ movies.drop(movies[movies['avg_rating'] > 5].index, inplace = True)
 
 <details> --------------------------------------------
 <summary>drop_duplicates</summary>
+     
+Series.drop_duplicates(keep='first', inplace=False)              
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.drop_duplicates.html)         
+     
+**Notes**
+* Get the unique values for a selected column 
+     
 </details>
 
 <details> --------------------------------------------
@@ -182,6 +189,13 @@ movies.drop(movies[movies['avg_rating'] > 5].index, inplace = True)
 ## E
 <details> --------------------------------------------
 <summary>expanding</summary>
+          
+DataFrame.expanding(min_periods=1, center=None, axis=0)          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.expanding.html?highlight=expanding#pandas.DataFrame.expanding)     
+     
+**Notes**
+* Creates a running total, mean, etc... Whatever aggregation you want 
+* Grows as it goes down the rows 
 </details>
 
 ## F
@@ -722,10 +736,6 @@ DataFrameGroupBy.transform(func, *args, engine=None, engine_kwargs=None, **kwarg
 </details>
 
 ## U
-<details> --------------------------------------------
-<summary>unique</summary>
-</details>
-
 <details> --------------------------------------------
 <summary>unstack</summary>
 </details>
