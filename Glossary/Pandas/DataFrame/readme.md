@@ -20,6 +20,10 @@ To select a multi-index use tuples
 ## A
 <details> --------------------------------------------
 <summary>add</summary>
+     
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.add.html?highlight=add#pandas.DataFrame.add)        
+DataFrame.add(other, axis='columns', level=None, fill_value=None)
+
 </details>
 
 <details> --------------------------------------------
@@ -36,6 +40,15 @@ DataFrame.agg(func=None, axis=0, *args, **kwargs)
 
 <details> --------------------------------------------
 <summary>append</summary>
+     
+DataFrame.append(other, ignore_index=False, verify_integrity=False, sort=False)           
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.append.html?highlight=append#pandas.DataFrame.append)  
+
+**Notes**
+* Append rows of other to the end of caller, returning a new object. 
+* Columns in other that are not in the caller are added as new columns. 
+
+
 </details>
 
 <details> --------------------------------------------
@@ -106,6 +119,9 @@ DataFrame.describe(percentiles=None, include=None, exclude=None, datetime_is_num
 
 <details> --------------------------------------------
 <summary>div</summary>
+     
+DataFrame.div(other, axis='columns', level=None, fill_value=None)          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.div.html?highlight=div#pandas.DataFrame.div)
 </details>
 
 <details> --------------------------------------------
@@ -341,6 +357,51 @@ print(df.melt(id_vars='id', value_vars='Week', var_name='VARIABLE',value_name='V
 
 <details> --------------------------------------------
 <summary>merge</summary>
+     
+DataFrame.merge(right, how='inner', on=None, left_on=None, right_on=None, left_index=False, right_index=False, sort=False, suffixes=('_x', '_y'), copy=True, indicator=False, validate=None)            
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html)      
+
+**Notes** 
+* See also pd.merge() 
+* Merging on multiple columns 
+```
+Data1.merge(data2, on = ['col1','col2']) 
+```
+* Merging multiple tables 
+```
+Data1.merge(data2, on='col1').merge(data3, on='other_col') 
+```
+* Merging on index 
+     * Exact same way on columns since the merge method adjusts the on argument to either index or col names 
+     * Need to use left_index=True and right_index=True when using the left_on and right_on arguments with index 
+* Semi-Join 
+     * Returns the intersection, similar to an inner join 
+     * Returns only columns from the left table and not the right 
+     * No duplicates
+```
+genres_tracks = genres.merge(top_tracks, on='gid'(
+top_genres = genres[genres['gid'].isin(genres_tracks['gid'])]
+print(top_genres.head())
+ ```
+ * Steps for the above code:
+     * 1. Merge using an inner join 
+     * 2. Filter using isin() 
+     
+* Anti-join
+     * Returns the left table, excluding the intersection
+     * Returns only columns from the left table and **not** the right
+     
+```
+genres_tracks = genres.merge(top_tracks, on='gid', how='left', indicator=True)
+gid_list = genres.tracks.loc[genrees_tracks['_merge'] == 'left_only','gid']
+non_top_genres = genres[genres['gid'].isin(gid_list)]
+print(non_top_genres.head())
+```  
+     
+* Steps for the code above
+     * 1. Merge using a left join 
+     * 2. Filter to left only 
+     * 3. Use the result with the isin()     
 </details>
 
 <details> --------------------------------------------
@@ -353,6 +414,10 @@ print(df.melt(id_vars='id', value_vars='Week', var_name='VARIABLE',value_name='V
 
 <details> --------------------------------------------
 <summary>mul</summary>
+     
+DataFrame.mul(other, axis='columns', level=None, fill_value=None)     
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mul.html?highlight=mul#pandas.DataFrame.mul)        
+
 </details>
 
 ## N
@@ -563,6 +628,14 @@ DataFrame.std(axis=None, skipna=None, level=None, ddof=1, numeric_only=None, **k
 
 <details> --------------------------------------------
 <summary>subtract</summary>
+     
+DataFrame.subtract(other, axis='columns', level=None, fill_value=None)          
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.subtract.html)
+**Notes**
+* Subtract from all elements in the dataframe 
+     * Df - 1 
+     * Df.subtract(1) 
+     * Df.loc[df['eggs']-1] 
 </details>
 
 <details> --------------------------------------------
