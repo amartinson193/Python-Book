@@ -23,7 +23,8 @@ property Series.dtype
   * Other Sources:  
     * https://realpython.com/python-type-checking/ 
 </details>
-## G
+    
+# G
 <details> --------------------------------------------
 <summary>get</summary>
   
