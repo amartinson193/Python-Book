@@ -1,0 +1,38 @@
+name: "Python-Book"
+navbar:
+  title: "My Python Book"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Package Glossary"
+      menu:
+        - text: "*Base Python"
+          href: 
+        - text: "Beautiful Soup"
+          href: 
+        - text: "Matplotlib"
+          href: 
+        - text: "Numpy"
+          href: 
+        - text: "Pandas"
+          href: "Package Glossary/Pandas.html"
+        - text: "Re"
+          href: 
+        - text: "Scipy"
+          href: 
+        - text: "Seaborn"
+          href: 
+        - text: "Sklearn"
+          href: 
+        - text: "Statsmodels"
+          href: 
+        - text: "zOther"
+          href: 
+    - text: "Models"
+      href: "Models/Models.html"
+    - text: "Articles/Projects"
+      href: "Articles & Projects/ArticlesProjects.html"
+
+
+      
+output_dir: '.'

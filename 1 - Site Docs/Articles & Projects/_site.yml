@@ -1,0 +1,11 @@
+name: "Python-Book"
+navbar:
+  title: "My Python Book"
+  left:
+    - text: "Home"
+      href: "../index.html"
+
+
+
+      
+output_dir: '.'
