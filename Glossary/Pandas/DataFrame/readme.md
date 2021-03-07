@@ -144,6 +144,7 @@ DataFrame.count(axis=0, level=None, numeric_only=False)
 [Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html?highlight=count#pandas.DataFrame.count)       
 
 </details>
+     
 ## D
 <details> --------------------------------------------
 <summary>describe</summary>
