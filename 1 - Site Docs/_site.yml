@@ -37,9 +37,9 @@ navbar:
         - text: "zOther"
           href: 
     - text: "Models"
-      href: "Models/Models.html"
+      href: "2 - Models/Models.html"
     - text: "Articles/Projects"
-      href: "Articles & Projects/ArticlesProjects.html"
+      href: "3 - Articles & Projects/ArticlesProjects.html"
 
 
       
