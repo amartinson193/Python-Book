@@ -13,9 +13,17 @@ navbar:
         - text: "Matplotlib"
           href: 
         - text: "Numpy"
-          href: 
+          href: "1 - Package Glossary/Numpy.html"
         - text: "Pandas"
-          href: "Package Glossary/Pandas.html"
+          menu:
+            - text: "Pandas Home"
+              href: "1 - Package Glossary/Pandas.html"
+            - text: "Dataframes"
+              href: "1 - Package Glossary/Pandas/DataFrames.html"
+            - text: "Series"
+              href: "1 - Package Glossary/Pandas/Series.html"
+            - text: "Index"
+              href: 
         - text: "Re"
           href: 
         - text: "Scipy"

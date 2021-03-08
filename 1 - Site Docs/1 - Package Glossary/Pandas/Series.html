@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>Pandas</title>
 
 <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -284,49 +284,10 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Package Glossary
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">*Base Python</li>
-    <li class="dropdown-header">Beautiful Soup</li>
-    <li class="dropdown-header">Matplotlib</li>
-    <li>
-      <a href="1 - Package Glossary/Numpy.html">Numpy</a>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pandas</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="1 - Package Glossary/Pandas.html">Pandas Home</a>
-        </li>
-        <li>
-          <a href="1 - Package Glossary/Pandas/DataFrames.html">Dataframes</a>
-        </li>
-        <li>
-          <a href="1 - Package Glossary/Pandas/Series.html">Series</a>
-        </li>
-        <li class="dropdown-header">Index</li>
-      </ul>
-    </li>
-    <li class="dropdown-header">Re</li>
-    <li class="dropdown-header">Scipy</li>
-    <li class="dropdown-header">Seaborn</li>
-    <li class="dropdown-header">Sklearn</li>
-    <li class="dropdown-header">Statsmodels</li>
-    <li class="dropdown-header">zOther</li>
-  </ul>
+  <a href="../../index.html">Home</a>
 </li>
 <li>
-  <a href="Models/Models.html">Models</a>
-</li>
-<li>
-  <a href="Articles &amp; Projects/ArticlesProjects.html">Articles/Projects</a>
+  <a href="../Pandas.html">Pandas</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -340,34 +301,105 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Pandas</h1>
 
 </div>
 
 
-<div id="cheatsheets" class="section level2">
-<h2>Cheatsheets</h2>
-<p><a href="https://ehmatthes.github.io/pcc/cheatsheets/README.html">Python Crash Course</a><br />
-<a href="https://www.datacamp.com/community/data-science-cheatsheets?page=3">Datacamp cheat sheets</a><br />
-<a href="https://sinxloud.com/python-cheat-sheet-beginner-advanced/">Dataquest cheat sheets</a> <a href="https://www.w3schools.com/python/python_ref_dictionary.asp">W3Schools</a></p>
+<hr />
+<div id="notes" class="section level1">
+<h1>Notes</h1>
+<ul>
+<li>Shares a lot of methods with dictionaries<br />
+</li>
+<li>One big difference is that you can have multiple indices with the same value (key)</li>
+</ul>
 </div>
-<div id="blogs" class="section level2">
-<h2>Blogs</h2>
-<p><a href="https://www.math.ubc.ca/~pwalls/math-python/">Mathematical Python</a></p>
+<div id="attributes" class="section level1">
+<h1>Attributes</h1>
 </div>
-<div id="books" class="section level2">
-<h2>Books</h2>
-<p><em>Put an x next to the books I’ve read</em></p>
-<p><a href="https://evanli.github.io/programming-book-3/Python/Fluent%20Python.pdf">Fluent Python</a><br />
-<a href="https://d.cxcore.net/Python/Python_Cookbook_3rd_Edition.pdf">Python Cookbook</a><br />
-<a href="https://www.programmer-books.com/wp-content/uploads/2018/06/Python%20Crash%20Course%20-%20A%20Hands-On,%20Project-Based%20Introduction%20to%20Programming.pdf">Python Crash Course</a><br />
-<a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a><br />
-<a href="https://book.pythontips.com/en/latest/enumerate.html">Python Tips</a><br />
-<a href="https://medium.com/pragmatic-programmers">The Pragmatic Programmers</a><br />
-<a href="http://greenteapress.com/thinkpython/html/index.html">Think Python</a></p>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<div id="d" class="section level2">
+<h2>D</h2>
+<details>
+<hr />
+<summary>
+dtype
+</summary>
+<p>property Series.dtype<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dtype.html?highlight=dtype#pandas.Series.dtype">Docs</a></p>
+<strong>Notes</strong> * Checking types * .dtypes * This will get you the data type of the column * Type() * This will get you the variable type (i.e. index, list, object, etc…) * Other Sources:<br />
+* <a href="https://realpython.com/python-type-checking/" class="uri">https://realpython.com/python-type-checking/</a>
+</details>
 </div>
-<div id="learning-resources" class="section level2">
-<h2>Learning Resources</h2>
+</div>
+<div id="g" class="section level1">
+<h1>G</h1>
+<details>
+<hr />
+<summary>
+get
+</summary>
+<p>Series.get(key, default=None) <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.get.html?highlight=get#pandas.Series.get">Docs</a></p>
+<strong>Notes</strong><br />
+* You can pass a list to get multiple indices * Acts similar to a dictionary get * Also available for the dataframe method
+</details>
+<div id="i" class="section level2">
+<h2>I</h2>
+<details>
+<hr />
+<summary>
+items
+</summary>
+Series.items()<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.items.html?highlight=items#pandas.Series.items">Docs</a>
+</details>
+</div>
+<div id="n" class="section level2">
+<h2>N</h2>
+<details>
+<hr />
+<summary>
+nunique
+</summary>
+DataFrame.nunique(axis=0, dropna=True)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.nunique.html?highlight=nunique#pandas.DataFrame.nunique">Docs</a>
+</details>
+</div>
+<div id="t" class="section level2">
+<h2>T</h2>
+<details>
+<hr />
+<summary>
+to_frame
+</summary>
+<p>Series.to_frame(name=None)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.to_frame.html?highlight=to_frame#pandas.Series.to_frame">Docs</a></p>
+<strong>Notes</strong> * Converts series to dataframe
+</details>
+<details>
+<hr />
+<summary>
+tolist
+</summary>
+<p>Series.tolist() <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.tolist.html?highlight=tolist#pandas.Series.tolist">Docs</a></p>
+<strong>Notes</strong><br />
+* Return a list of the values * I prefer the list function over this one
+</details>
+</div>
+<div id="u" class="section level2">
+<h2>U</h2>
+<details>
+<hr />
+<summary>
+unique
+</summary>
+<p>Series.unique()<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html?highlight=unique#pandas.Series.unique">Docs</a></p>
+<strong>Notes</strong> * Returns the unique values of the series object * Returns values as a numpy array * Drop_duplicates keeps it as a dataframe, while unique makes it into a numpy array
+</details>
+</div>
 </div>
 
 

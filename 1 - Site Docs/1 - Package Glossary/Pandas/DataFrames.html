@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Pandas</title>
+
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Python Book</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="../../index.html">Home</a>
+</li>
+<li>
+  <a href="../Pandas.html">Pandas</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Pandas</h1>
+
+</div>
+
+
+<hr />
+<div id="notes" class="section level1">
+<h1>Notes</h1>
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">Docs - Full list of methods + attributes</a><br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html">Using text in Pandas Tutorial</a></p>
+<p>To select columns as a dataframe use [[]]<br />
+To select columns as a series use []<br />
+To select a multi-index use tuples</p>
+</div>
+<div id="attributes" class="section level1">
+<h1>Attributes</h1>
+<ul>
+<li>shape</li>
+<li>columns</li>
+<li>index</li>
+<li>values</li>
+<li>dtypes</li>
+</ul>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<div id="a" class="section level2">
+<h2>A</h2>
+<details>
+<hr />
+<summary>
+add
+</summary>
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.add.html?highlight=add#pandas.DataFrame.add">Docs</a><br />
+DataFrame.add(other, axis=‘columns’, level=None, fill_value=None)</p>
+</details>
+<details>
+<hr />
+<summary>
+agg
+</summary>
+<p>DataFrame.agg(func=None, axis=0, *args, **kwargs)<br />
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.agg.html?highlight=agg#pandas.DataFrame.agg">Docs</a></p>
+<p><strong>Notes</strong> * Agg is short for aggregate, use the alias instead * Agg using a dictionary: data.groupby(‘Species’).agg({‘SepalLengthCm’:‘mean’,‘SepalWidthCm’:‘median’})</p>
+</details>
+<details>
+<hr />
+<summary>
+any
+</summary>
+<p>DataFrame.any(axis=0, bool_only=None, skipna=True, level=None, <strong>kwargs</strong>)<br />
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.any.html?highlight=any#pandas.DataFrame.any">Docs</a></p>
+<strong>Notes</strong> * It essentially can flatten a list of boolean values into one True or one False
+</details>
+<details>
+<hr />
+<summary>
+append
+</summary>
+<p>DataFrame.append(other, ignore_index=False, verify_integrity=False, sort=False)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.append.html?highlight=append#pandas.DataFrame.append">Docs</a></p>
+<p><strong>Notes</strong> * Append rows of other to the end of caller, returning a new object. * Columns in other that are not in the caller are added as new columns.</p>
+</details>
+<details>
+<hr />
+<summary>
+apply
+</summary>
+<p>DataFrame.apply(func, axis=0, raw=False, result_type=None, args=(), <strong>kwds)<br />
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html">Docs</a><br />
+</strong>Notes** * Use a function on all values in a dataframe * Apply can be used, but transform or agg should try to be used first since they are faster * I guess map is another option here too</p>
+</details>
+<details>
+<hr />
+<summary>
+assign
+</summary>
+<p>DataFrame.assign(**kwargs)<br />
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.assign.html?highlight=assign#pandas.DataFrame.assign">Docs</a></p>
+<strong>Notes</strong> * Create multiple new columns at once
+</details>
+<details>
+<hr />
+<summary>
+astype
+</summary>
+<p>DataFrame.astype(dtype, copy=True, errors=‘raise’)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.astype.html?highlight=astype#pandas.DataFrame.astype">Docs</a></p>
+<p><strong>Notes</strong> * Converting type of a column for a dataframe * .astype(keyword for type that you need (int, str, etc…)) * Converting type * .astype() * E.g. convert to string * .astype(‘str’) * Converting to a category can be two things:</p>
+<pre><code>cat_dtype = pd.api.types.CategoricalDtype(categories=[2, 1], ordered=True) 
+&gt;&gt;&gt; ser.astype(cat_dtype) OR 
+Ser.astype(type=&#39;category&#39;, ordered = True, categories = categories) </code></pre>
+</details>
+</div>
+<div id="b" class="section level2">
+<h2>B</h2>
+<details>
+<hr />
+<summary>
+bfill
+</summary>
+DataFrame.bfill(axis=None, inplace=False, limit=None, downcast=None)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.bfill.html?highlight=bfill#pandas.DataFrame.bfill">Docs</a>
+</details>
+</div>
+<div id="c" class="section level2">
+<h2>C</h2>
+<details>
+<hr />
+<summary>
+copy
+</summary>
+<p>DataFrame.copy(deep=True)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.copy.html?highlight=copy#pandas.DataFrame.copy">Docs</a></p>
+<strong>Notes</strong> * Manipulate the dataset without changing the original data * Also for Series/Index
+</details>
+<details>
+<hr />
+<summary>
+corr
+</summary>
+<p>DataFrame.corr(method=‘pearson’, min_periods=1)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html?highlight=corr#pandas.DataFrame.corr">Docs</a></p>
+<p><strong>Parameters</strong><br />
+* Method (opt) = (‘pearson’, ‘kendall’, ‘spearman’}) * Min_periods (opt) = the minimum number of observations to compute a correlation, only available for pearson and spearman</p>
+<strong>Notes</strong> * This only works for linear relationships. It will underestimate non-linear relationships.
+</details>
+<details>
+<hr />
+<summary>
+count
+</summary>
+<p>DataFrame.count(axis=0, level=None, numeric_only=False)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html?highlight=count#pandas.DataFrame.count">Docs</a></p>
+</details>
+</div>
+<div id="d" class="section level2">
+<h2>D</h2>
+<details>
+<hr />
+<summary>
+describe
+</summary>
+<p>DataFrame.describe(percentiles=None, include=None, exclude=None, datetime_is_numeric=False) <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html?highlight=describe#pandas.DataFrame.describe">Docs</a></p>
+</details>
+<details>
+<hr />
+<summary>
+div
+</summary>
+DataFrame.div(other, axis=‘columns’, level=None, fill_value=None)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.div.html?highlight=div#pandas.DataFrame.div">Docs</a>
+</details>
+<details>
+<hr />
+<summary>
+drop
+</summary>
+<p>DataFrame.drop(labels=None, axis=0, index=None, columns=None, level=None, inplace=False, errors=‘raise’)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop.html">Docs</a></p>
+<p><strong>Notes</strong> * Remove a column or items in a column/row * Pandas.dataframe.drop – gold standard * Del df[‘column to be deleted’] * E.g. - Source: Cleaning Data in Python - “Data Range Constraints” Video * Using .index to create a dataframe and pass an expression to drop #dotindex</p>
+<pre><code># Drop values using filtering
+movies = movies[movies[&#39;avg_rating&#39;] &lt;= 5]
+# Drop values using .drop()
+movies.drop(movies[movies[&#39;avg_rating&#39;] &gt; 5].index, inplace = True)</code></pre>
+<ul>
+<li>An alternate method for dropping rows is using the tilde operator. See keywords -&gt; tilde for more details</li>
+</ul>
+</details>
+<details>
+<hr />
+<summary>
+drop_duplicates
+</summary>
+<p>Series.drop_duplicates(keep=‘first’, inplace=False)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.drop_duplicates.html">Docs</a></p>
+<p><strong>Notes</strong> * Get the unique values for a selected column</p>
+</details>
+<details>
+<hr />
+<summary>
+dropna
+</summary>
+<p>DataFrame.dropna(axis=0, how=‘any’, thresh=None, subset=None, inplace=False)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html?highlight=dropna#pandas.DataFrame.dropna">Docs</a></p>
+<p><strong>Parameters</strong> * axis{0 or ‘index’, 1 or ‘columns’}, default 0 * Determine if rows or columns which contain missing values are removed. * 0, or ‘index’ : Drop rows which contain missing values. * 1, or ‘columns’ : Drop columns which contain missing value. * Changed in version 1.0.0: Pass tuple or list to drop on multiple axes. Only a single axis is allowed. * how{‘any’, ‘all’}, default ‘any’ * Determine if row or column is removed from DataFrame, when we have at least one NA or all NA. * ‘any’ : If any NA values are present, drop that row or column. * ‘all’ : If all values are NA, drop that row or column. * thresh: int, optional * Require that many non-NA values. * Subset = array-like, optional * Labels along other axis to consider, e.g. if you are dropping rows these would be a list of columns to include. * Has to be a list</p>
+<strong>Notes</strong><br />
+* Also applies to Series and Index
+</details>
+<details>
+<hr />
+<summary>
+duplicated
+</summary>
+<p>DataFrame.duplicated(subset=None, keep=‘first’)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.duplicated.html?highlight=duplicated#pandas.DataFrame.duplicated">Docs</a></p>
+<strong>Notes</strong> * Can use this to get a list of the duplicated values
+</details>
+</div>
+<div id="e" class="section level2">
+<h2>E</h2>
+<details>
+<hr />
+<summary>
+equals
+</summary>
+DataFrame.equals(other)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.equals.html?highlight=equals#pandas.DataFrame.equals">Docs</a>
+</details>
+<details>
+<hr />
+<summary>
+expanding
+</summary>
+<p>DataFrame.expanding(min_periods=1, center=None, axis=0)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.expanding.html?highlight=expanding#pandas.DataFrame.expanding">Docs</a></p>
+<strong>Notes</strong> * Creates a running total, mean, etc… Whatever aggregation you want * Grows as it goes down the rows
+</details>
+</div>
+<div id="f" class="section level2">
+<h2>F</h2>
+<details>
+<hr />
+<summary>
+fillna
+</summary>
+<p>.</p>
+<p>DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html?highlight=fillna">Docs</a></p>
+<p><strong>Parameters</strong> * Value (partial req; value or method) = The number/string to use as a filler, can also be a dictionary * e.g. To fill with the mean, you would do something like</p>
+<pre><code>rating_mean= wine[&#39;rating&#39;].mean() 
+wine_imputed= wine.fillna({&#39;rating&#39;: rating_mean})</code></pre>
+<strong>Notes</strong><br />
+* Fill missing values
+</details>
+</div>
+<div id="i" class="section level2">
+<h2>I</h2>
+<details>
+<hr />
+<summary>
+iloc
+</summary>
+<p>property DataFrame.iloc<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html#pandas.DataFrame.iloc">Docs</a></p>
+</details>
+<details>
+<hr />
+<summary>
+index
+</summary>
+<p>DataFrame.index: Index <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.index.html?highlight=index#pandas.DataFrame.index">Docs</a></p>
+</details>
+<details>
+<hr />
+<summary>
+isna
+</summary>
+<p>DataFrame.isna()<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isna.html?highlight=isna#pandas.DataFrame.isna">Docs</a></p>
+<p><strong>Notes</strong> * Returns all values as boolean * Count the number of nulls in pandas * .isna().sum() * Isnull().sum() * Isnull is an alias of isna * dataframe.isna().any() * Tells you if there are any na’s by column * Not above * dataframe.isna().fillna(0)</p>
+</details>
+</div>
+<div id="g" class="section level2">
+<h2>G</h2>
+<details>
+<hr />
+<summary>
+groupby
+</summary>
+<p>DataFrame.groupby(by=None, axis=0, level=None, as_index=True, sort=True, group_keys=True, squeeze=object object , observed=False, dropna=True)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">Docs</a></p>
+<strong>Notes</strong><br />
+* User guide: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html" class="uri">https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html</a><br />
+* Another reference: <a href="https://realpython.com/pandas-groupby/" class="uri">https://realpython.com/pandas-groupby/</a><br />
+* Sort within a groupby : <a href="https://medium.com/@arccoder/pandas-sort-within-groups-e1f3b6a10a3f" class="uri">https://medium.com/@arccoder/pandas-sort-within-groups-e1f3b6a10a3f</a><br />
+* E.g. grouped2 = grouped.groupby(‘year’).apply(lambda x: x.sort_values([‘set_num’],ascending=False))<br />
+* If specifying more than one aggregation in agg, you need a list
+</details>
+</div>
+<div id="i-1" class="section level2">
+<h2>I</h2>
+<details>
+<hr />
+<summary>
+info
+</summary>
+<p>DataFrame.info(verbose=None, buf=None, max_cols=None, memory_usage=None, show_counts=None, null_counts=None)<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.info.html?highlight=info#pandas.DataFrame.info">Docs</a></p>
+<strong>Notes</strong> * Find general information like dtypes and non-null counts * See also describe * Similar to summary in R
+</details>
+<details>
+<hr />
+<summary>
+isin
+</summary>
+<p>DataFrame.isin(values)<br />
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isin.html">Docs</a></p>
+<strong>Notes</strong> * Similar to ‘in’ using SQL
+</details>
+<details>
+<hr />
+<summary>
+isna
+</summary>
+DataFrame.isna()<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isna.html?highlight=isna#pandas.DataFrame.isna" class="uri">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.isna.html?highlight=isna#pandas.DataFrame.isna</a>
+</details>
+<details>
+<hr />
+<summary>
+iterrows
+</summary>
+<p>DataFrame.iterrows() <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iterrows.html">Docs</a></p>
+<strong>Notes</strong> * Loop over rows of a dataframe
+</details>
+</div>
+<div id="l" class="section level2">
+<h2>L</h2>
+<details>
+<hr />
+<summary>
+loc
+</summary>
+<p>property DataFrame.loc<br />
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html">Docs</a></p>
+<strong>Notes</strong> * Changing a data value * wards.loc[wards[‘ward’] == ‘1’, ‘ward’] = ‘61’ * Select a column * gdp_sp500.loc[:,[‘gdp’,‘returns’]] * Need to use the colon * Select all columns following a certain column by using colons after the name * Data.loc[:,‘columns’:]
+</details>
+</div>
+<div id="m" class="section level2">
+<h2>M</h2>
+<details>
+<hr />
+<summary>
+map
+</summary>
+<p>Series.map(arg, na_action=None)<br />
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html?highlight=map#pandas.Series.map">Docs</a></p>
+<p><strong>Notes</strong> * Replace values in a dataframe * Pandas.dataframe.map * Map values to a dataframe * E.g. from <a href="https://kanoki.org/2019/04/06/pandas-map-dictionary-values-with-dataframe-columns/" class="uri">https://kanoki.org/2019/04/06/pandas-map-dictionary-values-with-dataframe-columns/</a>: ``` country_capital= { ‘Germany’:‘Berlin’, ‘Brazil’:’Bras</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

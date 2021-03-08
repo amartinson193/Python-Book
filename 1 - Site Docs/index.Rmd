@@ -4,8 +4,7 @@ output:
   html_document: 
     theme: cerulean
 ---
-
-# Python-Book
+    
 
 ## Cheatsheets
 [Python Crash Course](https://ehmatthes.github.io/pcc/cheatsheets/README.html)       
