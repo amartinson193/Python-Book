@@ -385,30 +385,34 @@ property DataFrame.loc
 * Select all columns following a certain column by using colons after the name 
      * Data.loc[:,'columns':]      
 </details>
-
+  
 ## M
+      
+ 
 <details> --------------------------------------------
 <summary>map</summary>
-     
+  
 Series.map(arg, na_action=None)    
 [Docs](https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html?highlight=map#pandas.Series.map)
-
+  
 **Notes** 
 * Replace values in a dataframe 
 * Pandas.dataframe.map 
 * Map values to a dataframe 
-* E.g. from https://kanoki.org/2019/04/06/pandas-map-dictionary-values-with-dataframe-columns/:
-```
-country_capital= { 'Germany':'Berlin', 'Brazil':'Brasília', 'Budapest':'Hungary', 'China':'Beijing', 'India':'New Delhi', 'Norway':'Oslo', 'France':'Paris', 'Indonesia': 'Jakarta', 'USA':'Washington' } 
+* E.g. from https://kanoki.org/2019/04/06/pandas-map-dictionary-values-with-dataframe-columns/:  
+  
 
-df['Capital'] = df['Country'].map(country_capital) 
 ```
+country_capital = {'Germany':'Berlin', 'Brazil':'Brasilia', 'Budapest':'Hungary','China':'Beijing', 'India':'New Dehli', 'Norway':'Oslo', 'France':'Paris', 'Indonesia': 'Jakarta','USA':'Washington'}
+capital['Capital'] = df['Country'].map(country_capital)
+```
+  
 * See also Dataframe.pandas.replace 
 * I think the main difference is replace replaces the values for the column specified, but that doesn't seem like that big of a difference 
-* This is very similar to the map base function in Python -except this version can take a dictionary instead of just functions like in the base Python version 
-
+* This is very similar to the map base function in Python -except this version can take a dictionary instead of just functions like in the base Python version   
+  
 </details>
-
+      
 <details> --------------------------------------------
 <summary>max</summary>    
      
