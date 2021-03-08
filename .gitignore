@@ -1,2 +1,4 @@
 *.Rmd
 *.Rproj
+.Rhistory
+*.code-workspace
