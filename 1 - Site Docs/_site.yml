@@ -9,15 +9,19 @@ navbar:
         - text: "*Base Python"
           href: 
         - text: "Beautiful Soup"
-          href: 
+          menu:
+            - text: "Beautiful Soup Home"
+              href: "Beautiful-Soup.html"
+            - text: "Beautiful Soup Glossary"
+              href: "1 - Package Glossary/Beautiful Soup/Beautiful-Soup.html"              
         - text: "Matplotlib"
           href: 
         - text: "Numpy"
-          href: "1 - Package Glossary/Numpy.html"
+          href: "Numpy.html"
         - text: "Pandas"
           menu:
             - text: "Pandas Home"
-              href: "1 - Package Glossary/Pandas.html"
+              href: "Pandas.html"
             - text: "Dataframes"
               href: "1 - Package Glossary/Pandas/DataFrames.html"
             - text: "Series"
@@ -37,9 +41,9 @@ navbar:
         - text: "zOther"
           href: 
     - text: "Models"
-      href: "2 - Models/Models.html"
+      href: "Models.html"
     - text: "Articles/Projects"
-      href: "3 - Articles & Projects/ArticlesProjects.html"
+      href: "ArticlesProjects.html"
 
 
       

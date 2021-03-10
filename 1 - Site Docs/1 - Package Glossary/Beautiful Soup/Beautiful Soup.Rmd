@@ -1,0 +1,39 @@
+---
+title: "Beautiful Soup"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes
+
+* This is how you create the soup:
+```
+with urllib.request.urlopen(url) as response:
+    html = response.read()
+    html = html.decode('utf-8')
+
+# 2 Parse this html with BeautifulSoup
+soup = BeautifulSoup(html, 'html.parser')
+```
+* To select a class element, you can do bs4.BeautifulSoup.select('tag.class')
+     
+# Attributes
+
+
+# Methods
+
+## A
+<details> --------------------------------------------
+<summary>append</summary>
+
+bs4.BeautifulSoup.append(bs4.BeautifulSoup)
+[Docs](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#append)
+
+**Notes**
+
+
+</details>
+

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1615381654564.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1264542648",
+    "id" : "D10A80FC",
+    "lastKnownWriteTime" : 1615212473,
+    "last_content_update" : 1615212473,
+    "path" : "~/Github/Python-Book/1 - Site Docs/1 - Package Glossary/Pandas/DataFrames.Rmd",
+    "project_path" : "1 - Package Glossary/Pandas/DataFrames.Rmd",
+    "properties" : {
+        "cursorPosition" : "29,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

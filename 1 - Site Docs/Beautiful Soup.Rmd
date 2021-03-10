@@ -1,0 +1,21 @@
+---
+title: "Beautiful Soup"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+
+## Cheatsheets
+
+
+## Beautiful Soup Documentation
+
+[Beautiful Soup Documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
+
+## Learning Resources
+
+## Attributes
+    
+

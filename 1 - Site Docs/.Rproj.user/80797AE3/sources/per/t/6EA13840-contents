@@ -4,8 +4,8 @@ navbar:
   left:
     - text: "Home"
       href: "../../index.html"
-    - text: "Pandas Home"
-      href: "../../Pandas.html"
+    - text: "Beautiful Soup Home"
+      href: "../../Beautiful-Soup.html"
 
 
       
