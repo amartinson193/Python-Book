@@ -1,5 +1,5 @@
 ---
-title: "Pandas"
+title: "Pandas Series"
 output: 
   html_document: 
     theme: cerulean
@@ -7,15 +7,25 @@ output:
     
 ------------------------------------------------------------------
     
-# Notes
+# General 
+  
+### Notes
 
 * Shares a lot of methods with dictionaries     
 * One big difference is that you can have multiple indices with the same value (key) 
+* [Full list of Series Methods](https://pandas.pydata.org/pandas-docs/stable/reference/series.html)
 
-# Attributes
+### Accessors   
+    
+* Pd.Series.dt 
+* Pd.Series.str 
+* Pd.Series.cat 
+* Pd.Series.sparse 
 
-# Methods
-
+### Attributes    
+    
+### Methods   
+    
 ## D
 <details> --------------------------------------------
 <summary>dtype</summary>
@@ -97,3 +107,223 @@ Series.unique()
 * Drop_duplicates keeps it as a dataframe, while unique makes it into a numpy array 
 </details>
 
+------------------
+
+# Categories    
+  
+### Notes   
+
+**Notes**
+  
+* This article gives a good introduction to Python categories 
+  * https://pbpython.com/pandas_dtypes_cat.html 
+    
+* From the pandas website 
+  * https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html#categorical-categoricaldtype 
+
+```
+from pandas.api.types import CategoricalDtype 
+```
+
+* This is how you can define a category before passing to astype 
+
+* A common mistake for this data type is getting NA's when a category that is not defined as a category enters the dataset. If this happens, it will return a null 
+
+
+* Here are 3 examples of defining a category 
+
+```
+s = pd.Series(["a", "b", "c", "a"], dtype="category") 
+
+s.astype('category') 
+
+CategoricalDtype("a", "b", "c", "a"], ordered=False) 
+```
+
+* Similar to R's 'factor' 
+    
+### Attributes    
+
+pandas.Series.cat.categories  
+    
+* Returns all category values 
+* Unique will only return unique values that are present, whereas this attribute will return all categories that are defined for this data type 
+    
+pandas.Series.cat.ordered     
+* Returns a boolean of the ordered status   
+    
+### Instance Methods    
+    
+## A    
+* pandas.Series.cat.add_categories 
+* pandas.Series.cat.as_ordered 
+* pandas.Series.cat.as_unordered 
+
+## C      
+* pandas.Series.cat.codes 
+* pandas.Series.cat.rename_categories 
+
+## R
+<details> --------------------------------------------
+<summary>reorder_categories </summary>
+* pandas.Series.cat.reorder_categories  
+    
+* You can use .astype and then this function afterwards to assign category orders 
+
+</details>
+  
+* pandas.Series.cat.remove_categories 
+* pandas.Series.cat.remove_unused_categories 
+
+## S
+* pandas.Series.cat.set_categories 
+    
+# Dates
+    
+### Notes   
+    
+* dt accessor is not needed to access attributes if you use a datetimeindex instead of a datetime column
+    
+    
+### Attributes    
+    
+    
+* pandas.Series.dt.date 
+* pandas.Series.dt.time 
+* pandas.Series.dt.timetz 
+* pandas.Series.dt.year 
+* pandas.Series.dt.month 
+* pandas.Series.dt.day 
+* pandas.Series.dt.hour 
+* pandas.Series.dt.minute 
+* pandas.Series.dt.second 
+* pandas.Series.dt.microsecond 
+* pandas.Series.dt.nanosecond 
+* pandas.Series.dt.week 
+* pandas.Series.dt.weekofyear 
+* pandas.Series.dt.dayofweek 
+* pandas.Series.dt.day_of_week 
+* pandas.Series.dt.weekday 
+* pandas.Series.dt.dayofyear 
+* pandas.Series.dt.day_of_year 
+* pandas.Series.dt.quarter 
+
+### Instance Methods    
+    
+(an x before the method name indicates I know it/have used it before)  
+
+* pandas.Series.dt.ceil (Python method, in pandas.Series.dt.ceil) 
+* pandas.Series.dt.components (Python attribute, in pandas.Series.dt.components) 
+* pandas.Series.dt.date (Python attribute, in pandas.Series.dt.date) 
+* x pandas.Series.dt.day (Python attribute, in pandas.Series.dt.day) 
+* pandas.Series.dt.day_name (Python method, in pandas.Series.dt.day_name) 
+* pandas.Series.dt.dayofweek (Python attribute, in pandas.Series.dt.dayofweek) 
+* pandas.Series.dt.dayofyear (Python attribute, in pandas.Series.dt.dayofyear) 
+* pandas.Series.dt.days (Python attribute, in pandas.Series.dt.days) 
+* pandas.Series.dt.days_in_month (Python attribute, in pandas.Series.dt.days_in_month) 
+* pandas.Series.dt.daysinmonth (Python attribute, in pandas.Series.dt.daysinmonth) 
+* pandas.Series.dt.end_time (Python attribute, in pandas.Series.dt.end_time) 
+* pandas.Series.dt.floor (Python method, in pandas.Series.dt.floor) 
+* pandas.Series.dt.freq (Python attribute, in pandas.Series.dt.freq) 
+* pandas.Series.dt.hour (Python attribute, in pandas.Series.dt.hour) 
+* pandas.Series.dt.is_leap_year (Python attribute, in pandas.Series.dt.is_leap_year) 
+* pandas.Series.dt.is_month_end (Python attribute, in pandas.Series.dt.is_month_end) 
+* pandas.Series.dt.is_month_start (Python attribute, in pandas.Series.dt.is_month_start) 
+* pandas.Series.dt.is_quarter_end (Python attribute, in pandas.Series.dt.is_quarter_end) 
+* pandas.Series.dt.is_quarter_start (Python attribute, in pandas.Series.dt.is_quarter_start) 
+* pandas.Series.dt.is_year_end (Python attribute, in pandas.Series.dt.is_year_end) 
+* pandas.Series.dt.is_year_start (Python attribute, in pandas.Series.dt.is_year_start) 
+* pandas.Series.dt.microsecond (Python attribute, in pandas.Series.dt.microsecond) 
+* pandas.Series.dt.microseconds (Python attribute, in pandas.Series.dt.microseconds) 
+* x pandas.Series.dt.minute (Python attribute, in pandas.Series.dt.minute) 
+* x pandas.Series.dt.month (Python attribute, in pandas.Series.dt.month)
+* pandas.Series.dt.month_name (Python method, in pandas.Series.dt.month_name) 
+* pandas.Series.dt.nanosecond (Python attribute, in pandas.Series.dt.nanosecond) 
+* pandas.Series.dt.nanoseconds (Python attribute, in pandas.Series.dt.nanoseconds) 
+* pandas.Series.dt.normalize (Python method, in pandas.Series.dt.normalize)
+* x pandas.Series.dt.quarter (Python attribute, in pandas.Series.dt.quarter) 
+* pandas.Series.dt.qyear (Python attribute, in pandas.Series.dt.qyear) 
+* pandas.Series.dt.round (Python method, in pandas.Series.dt.round) 
+* pandas.Series.dt.second (Python attribute, in pandas.Series.dt.second) 
+* pandas.Series.dt.seconds (Python attribute, in pandas.Series.dt.seconds) 
+* pandas.Series.dt.start_time (Python attribute, in pandas.Series.dt.start_time) 
+* pandas.Series.dt.strftime (Python method, in pandas.Series.dt.strftime) 
+* pandas.Series.dt.time (Python attribute, in pandas.Series.dt.time) 
+* pandas.Series.dt.timetz (Python attribute, in pandas.Series.dt.timetz) 
+* pandas.Series.dt.to_period (Python method, in pandas.Series.dt.to_period) 
+* pandas.Series.dt.to_pydatetime (Python method, in pandas.Series.dt.to_pydatetime) 
+* pandas.Series.dt.to_pytimedelta (Python method, in pandas.Series.dt.to_pytimedelta) 
+* x pandas.Series.dt.total_seconds (Python method, in pandas.Series.dt.total_seconds)
+  * See timedelta.total_seconds() in the date section for the datetime module 
+* pandas.Series.dt.tz (Python attribute, in pandas.Series.dt.tz) 
+* pandas.Series.dt.tz_convert (Python method, in pandas.Series.dt.tz_convert) 
+  * See the datetime.datetime.astimezone() function 
+* pandas.Series.dt.tz_localize (Python method, in pandas.Series.dt.tz_localize) 
+  * Convert to different timezone
+    
+# Strings
+
+### Instance Methods    
+    
+(an x before the method name indicates I know it/have used it before)  
+    
+    
+* x Series.str.capitalize()
+* Series.str.casefold()
+* x Series.str.cat([others, sep, na_rep, join])
+* Series.str.center(width[, fillchar])
+* Series.str.contains(pat[, case, flags, na, .])
+  * Bitwise or operator "|" works when using str.contains 
+  * df[<column name>].str.contains(<string here> 
+    * Default is regex is on, case sensitive, flags = none  
+      * Regex flags: https://docs.python.org/3/library/re.html 
+* Series.str.count(pat[, flags])
+* Series.str.decode(encoding[, errors])
+* Series.str.encode(encoding[, errors])
+* x Series.str.endswith(pat[, na])
+* x Series.str.extract(pat[, flags, expand])
+  * Used with regex, you start searching by using an r following by quotes 
+    * E.g. r'(r)' 
+* Series.str.extractall(pat[, flags])
+* x Series.str.find(sub[, start, end])
+* Series.str.findall(pat[, flags])
+* x Series.str.get(i)
+* Series.str.index(sub[, start, end])
+* Series.str.join(sep)
+* x Series.str.len()
+* x Series.str.ljust(width[, fillchar])
+* Series.str.lower()
+* Series.str.lstrip([to_strip])
+* Series.str.match(pat[, case, flags, na])
+* Series.str.normalize(form)
+* Series.str.pad(width[, side, fillchar])
+* Series.str.partition([sep, expand])
+* Series.str.repeat(repeats)
+* Series.str.replace(pat, repl[, n, case, .])
+* Series.str.rfind(sub[, start, end])
+* Series.str.rindex(sub[, start, end])
+* x Series.str.rjust(width[, fillchar])
+* Series.str.rpartition([sep, expand])
+* Series.str.rstrip([to_strip])
+* x Series.str.slice([start, stop, step])
+* Series.str.slice_replace([start, stop, repl])
+* x Series.str.split([pat, n, expand])
+* Series.str.rsplit([pat, n, expand])
+* x Series.str.startswith(pat[, na])
+* x Series.str.strip([to_strip])
+* Series.str.swapcase()
+* Series.str.title()
+* Series.str.translate(table)
+* x Series.str.upper()
+* Series.str.wrap(width, **kwargs)
+* Series.str.zfill(width)
+* Series.str.isalnum()
+* Series.str.isalpha()
+* x Series.str.isdigit()
+* x Series.str.isspace()
+* x Series.str.islower()
+* x Series.str.isupper()
+* Series.str.istitle()
+* Series.str.isnumeric()
+* Series.str.isdecimal()
+* Series.str.get_dummies([sep])

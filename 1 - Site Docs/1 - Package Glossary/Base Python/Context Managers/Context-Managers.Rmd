@@ -1,0 +1,48 @@
+---
+title: "Context Managers"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes
+  
+The with keyword is a context manager   
+  
+* Context Managers  
+  * Can either use __enter__ and __exit__ in a class to define or use a decorator function    
+    * The decorator function must be '@contextlib.contextmanager'        
+    * E.g.    
+    
+  ```
+  @contextlib.contextmanager  
+  def my_context(): 
+  # Add any set up code you need  
+  yield 
+  # Add any teardown code you need  
+  ```
+  
+  1. Define a function  
+  2. (optional) Add any set up code your context needs  
+  3. Use the "yield" keyword    
+  4. (optional) Add any teardown code your context needs    
+  5. Add the '@contextlib.contextmanager' decorator   
+* A context manager is essentially a generator that yields a single value    
+* For example, they can be used to connect to a database and make it so you don't have to connect and disconnect every time     
+* They don't need to yield something every time, they can just do something and then have a blank yield statement     
+  
+* Nested context managers 
+  * Use two nested with statements  
+
+* How to know when you need to use a context manager  
+  ```
+  open | close
+  lock | release
+  change | reset
+  enter | exit
+  start | stop 
+  setup | teardown
+  connect | disconnect
+  ```

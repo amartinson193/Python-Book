@@ -11,7 +11,7 @@
 
 
 
-<title>Pandas</title>
+<title>Pandas Series</title>
 
 <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -301,25 +301,38 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Pandas</h1>
+<h1 class="title toc-ignore">Pandas Series</h1>
 
 </div>
 
 
 <hr />
-<div id="notes" class="section level1">
-<h1>Notes</h1>
+<div id="general" class="section level1">
+<h1>General</h1>
+<div id="notes" class="section level3">
+<h3>Notes</h3>
 <ul>
 <li>Shares a lot of methods with dictionaries<br />
 </li>
 <li>One big difference is that you can have multiple indices with the same value (key)</li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/series.html">Full list of Series Methods</a></li>
 </ul>
 </div>
-<div id="attributes" class="section level1">
-<h1>Attributes</h1>
+<div id="accessors" class="section level3">
+<h3>Accessors</h3>
+<ul>
+<li>Pd.Series.dt</li>
+<li>Pd.Series.str</li>
+<li>Pd.Series.cat</li>
+<li>Pd.Series.sparse</li>
+</ul>
 </div>
-<div id="methods" class="section level1">
-<h1>Methods</h1>
+<div id="attributes" class="section level3">
+<h3>Attributes</h3>
+</div>
+<div id="methods" class="section level3">
+<h3>Methods</h3>
+</div>
 <div id="d" class="section level2">
 <h2>D</h2>
 <details>
@@ -399,6 +412,260 @@ unique
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html?highlight=unique#pandas.Series.unique">Docs</a></p>
 <strong>Notes</strong> * Returns the unique values of the series object * Returns values as a numpy array * Drop_duplicates keeps it as a dataframe, while unique makes it into a numpy array
 </details>
+<hr />
+</div>
+</div>
+<div id="categories" class="section level1">
+<h1>Categories</h1>
+<div id="notes-1" class="section level3">
+<h3>Notes</h3>
+<p><strong>Notes</strong></p>
+<ul>
+<li>This article gives a good introduction to Python categories
+<ul>
+<li><a href="https://pbpython.com/pandas_dtypes_cat.html" class="uri">https://pbpython.com/pandas_dtypes_cat.html</a></li>
+</ul></li>
+<li>From the pandas website
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html#categorical-categoricaldtype" class="uri">https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html#categorical-categoricaldtype</a></li>
+</ul></li>
+</ul>
+<pre><code>from pandas.api.types import CategoricalDtype </code></pre>
+<ul>
+<li><p>This is how you can define a category before passing to astype</p></li>
+<li><p>A common mistake for this data type is getting NA’s when a category that is not defined as a category enters the dataset. If this happens, it will return a null</p></li>
+<li><p>Here are 3 examples of defining a category</p></li>
+</ul>
+<pre><code>s = pd.Series([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;], dtype=&quot;category&quot;) 
+
+s.astype(&#39;category&#39;) 
+
+CategoricalDtype(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;], ordered=False) </code></pre>
+<ul>
+<li>Similar to R’s ‘factor’</li>
+</ul>
+</div>
+<div id="attributes-1" class="section level3">
+<h3>Attributes</h3>
+<p>pandas.Series.cat.categories</p>
+<ul>
+<li>Returns all category values</li>
+<li>Unique will only return unique values that are present, whereas this attribute will return all categories that are defined for this data type</li>
+</ul>
+<p>pandas.Series.cat.ordered<br />
+* Returns a boolean of the ordered status</p>
+</div>
+<div id="instance-methods" class="section level3">
+<h3>Instance Methods</h3>
+</div>
+<div id="a" class="section level2">
+<h2>A</h2>
+<ul>
+<li>pandas.Series.cat.add_categories</li>
+<li>pandas.Series.cat.as_ordered</li>
+<li>pandas.Series.cat.as_unordered</li>
+</ul>
+</div>
+<div id="c" class="section level2">
+<h2>C</h2>
+<ul>
+<li>pandas.Series.cat.codes</li>
+<li>pandas.Series.cat.rename_categories</li>
+</ul>
+</div>
+<div id="r" class="section level2">
+<h2>R</h2>
+<details>
+<hr />
+<summary>
+reorder_categories
+</summary>
+<ul>
+<li><p>pandas.Series.cat.reorder_categories</p></li>
+<li><p>You can use .astype and then this function afterwards to assign category orders</p></li>
+</ul>
+</details>
+<ul>
+<li>pandas.Series.cat.remove_categories</li>
+<li>pandas.Series.cat.remove_unused_categories</li>
+</ul>
+</div>
+<div id="s" class="section level2">
+<h2>S</h2>
+<ul>
+<li>pandas.Series.cat.set_categories</li>
+</ul>
+</div>
+</div>
+<div id="dates" class="section level1">
+<h1>Dates</h1>
+<div id="notes-2" class="section level3">
+<h3>Notes</h3>
+<ul>
+<li>dt accessor is not needed to access attributes if you use a datetimeindex instead of a datetime column</li>
+</ul>
+</div>
+<div id="attributes-2" class="section level3">
+<h3>Attributes</h3>
+<ul>
+<li>pandas.Series.dt.date</li>
+<li>pandas.Series.dt.time</li>
+<li>pandas.Series.dt.timetz</li>
+<li>pandas.Series.dt.year</li>
+<li>pandas.Series.dt.month</li>
+<li>pandas.Series.dt.day</li>
+<li>pandas.Series.dt.hour</li>
+<li>pandas.Series.dt.minute</li>
+<li>pandas.Series.dt.second</li>
+<li>pandas.Series.dt.microsecond</li>
+<li>pandas.Series.dt.nanosecond</li>
+<li>pandas.Series.dt.week</li>
+<li>pandas.Series.dt.weekofyear</li>
+<li>pandas.Series.dt.dayofweek</li>
+<li>pandas.Series.dt.day_of_week</li>
+<li>pandas.Series.dt.weekday</li>
+<li>pandas.Series.dt.dayofyear</li>
+<li>pandas.Series.dt.day_of_year</li>
+<li>pandas.Series.dt.quarter</li>
+</ul>
+</div>
+<div id="instance-methods-1" class="section level3">
+<h3>Instance Methods</h3>
+<p>(an x before the method name indicates I know it/have used it before)</p>
+<ul>
+<li>pandas.Series.dt.ceil (Python method, in pandas.Series.dt.ceil)</li>
+<li>pandas.Series.dt.components (Python attribute, in pandas.Series.dt.components)</li>
+<li>pandas.Series.dt.date (Python attribute, in pandas.Series.dt.date)</li>
+<li>x pandas.Series.dt.day (Python attribute, in pandas.Series.dt.day)</li>
+<li>pandas.Series.dt.day_name (Python method, in pandas.Series.dt.day_name)</li>
+<li>pandas.Series.dt.dayofweek (Python attribute, in pandas.Series.dt.dayofweek)</li>
+<li>pandas.Series.dt.dayofyear (Python attribute, in pandas.Series.dt.dayofyear)</li>
+<li>pandas.Series.dt.days (Python attribute, in pandas.Series.dt.days)</li>
+<li>pandas.Series.dt.days_in_month (Python attribute, in pandas.Series.dt.days_in_month)</li>
+<li>pandas.Series.dt.daysinmonth (Python attribute, in pandas.Series.dt.daysinmonth)</li>
+<li>pandas.Series.dt.end_time (Python attribute, in pandas.Series.dt.end_time)</li>
+<li>pandas.Series.dt.floor (Python method, in pandas.Series.dt.floor)</li>
+<li>pandas.Series.dt.freq (Python attribute, in pandas.Series.dt.freq)</li>
+<li>pandas.Series.dt.hour (Python attribute, in pandas.Series.dt.hour)</li>
+<li>pandas.Series.dt.is_leap_year (Python attribute, in pandas.Series.dt.is_leap_year)</li>
+<li>pandas.Series.dt.is_month_end (Python attribute, in pandas.Series.dt.is_month_end)</li>
+<li>pandas.Series.dt.is_month_start (Python attribute, in pandas.Series.dt.is_month_start)</li>
+<li>pandas.Series.dt.is_quarter_end (Python attribute, in pandas.Series.dt.is_quarter_end)</li>
+<li>pandas.Series.dt.is_quarter_start (Python attribute, in pandas.Series.dt.is_quarter_start)</li>
+<li>pandas.Series.dt.is_year_end (Python attribute, in pandas.Series.dt.is_year_end)</li>
+<li>pandas.Series.dt.is_year_start (Python attribute, in pandas.Series.dt.is_year_start)</li>
+<li>pandas.Series.dt.microsecond (Python attribute, in pandas.Series.dt.microsecond)</li>
+<li>pandas.Series.dt.microseconds (Python attribute, in pandas.Series.dt.microseconds)</li>
+<li>x pandas.Series.dt.minute (Python attribute, in pandas.Series.dt.minute)</li>
+<li>x pandas.Series.dt.month (Python attribute, in pandas.Series.dt.month)</li>
+<li>pandas.Series.dt.month_name (Python method, in pandas.Series.dt.month_name)</li>
+<li>pandas.Series.dt.nanosecond (Python attribute, in pandas.Series.dt.nanosecond)</li>
+<li>pandas.Series.dt.nanoseconds (Python attribute, in pandas.Series.dt.nanoseconds)</li>
+<li>pandas.Series.dt.normalize (Python method, in pandas.Series.dt.normalize)</li>
+<li>x pandas.Series.dt.quarter (Python attribute, in pandas.Series.dt.quarter)</li>
+<li>pandas.Series.dt.qyear (Python attribute, in pandas.Series.dt.qyear)</li>
+<li>pandas.Series.dt.round (Python method, in pandas.Series.dt.round)</li>
+<li>pandas.Series.dt.second (Python attribute, in pandas.Series.dt.second)</li>
+<li>pandas.Series.dt.seconds (Python attribute, in pandas.Series.dt.seconds)</li>
+<li>pandas.Series.dt.start_time (Python attribute, in pandas.Series.dt.start_time)</li>
+<li>pandas.Series.dt.strftime (Python method, in pandas.Series.dt.strftime)</li>
+<li>pandas.Series.dt.time (Python attribute, in pandas.Series.dt.time)</li>
+<li>pandas.Series.dt.timetz (Python attribute, in pandas.Series.dt.timetz)</li>
+<li>pandas.Series.dt.to_period (Python method, in pandas.Series.dt.to_period)</li>
+<li>pandas.Series.dt.to_pydatetime (Python method, in pandas.Series.dt.to_pydatetime)</li>
+<li>pandas.Series.dt.to_pytimedelta (Python method, in pandas.Series.dt.to_pytimedelta)</li>
+<li>x pandas.Series.dt.total_seconds (Python method, in pandas.Series.dt.total_seconds)
+<ul>
+<li>See timedelta.total_seconds() in the date section for the datetime module</li>
+</ul></li>
+<li>pandas.Series.dt.tz (Python attribute, in pandas.Series.dt.tz)</li>
+<li>pandas.Series.dt.tz_convert (Python method, in pandas.Series.dt.tz_convert)
+<ul>
+<li>See the datetime.datetime.astimezone() function</li>
+</ul></li>
+<li>pandas.Series.dt.tz_localize (Python method, in pandas.Series.dt.tz_localize)
+<ul>
+<li>Convert to different timezone</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="strings" class="section level1">
+<h1>Strings</h1>
+<div id="instance-methods-2" class="section level3">
+<h3>Instance Methods</h3>
+<p>(an x before the method name indicates I know it/have used it before)</p>
+<ul>
+<li>x Series.str.capitalize()</li>
+<li>Series.str.casefold()</li>
+<li>x Series.str.cat([others, sep, na_rep, join])</li>
+<li>Series.str.center(width[, fillchar])</li>
+<li>Series.str.contains(pat[, case, flags, na, .])
+<ul>
+<li>Bitwise or operator “|” works when using str.contains</li>
+<li>df[<column name>].str.contains(<string here>
+<ul>
+<li>Default is regex is on, case sensitive, flags = none
+<ul>
+<li>Regex flags: <a href="https://docs.python.org/3/library/re.html" class="uri">https://docs.python.org/3/library/re.html</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Series.str.count(pat[, flags])</li>
+<li>Series.str.decode(encoding[, errors])</li>
+<li>Series.str.encode(encoding[, errors])</li>
+<li>x Series.str.endswith(pat[, na])</li>
+<li>x Series.str.extract(pat[, flags, expand])
+<ul>
+<li>Used with regex, you start searching by using an r following by quotes
+<ul>
+<li>E.g. r’(r)’</li>
+</ul></li>
+</ul></li>
+<li>Series.str.extractall(pat[, flags])</li>
+<li>x Series.str.find(sub[, start, end])</li>
+<li>Series.str.findall(pat[, flags])</li>
+<li>x Series.str.get(i)</li>
+<li>Series.str.index(sub[, start, end])</li>
+<li>Series.str.join(sep)</li>
+<li>x Series.str.len()</li>
+<li>x Series.str.ljust(width[, fillchar])</li>
+<li>Series.str.lower()</li>
+<li>Series.str.lstrip([to_strip])</li>
+<li>Series.str.match(pat[, case, flags, na])</li>
+<li>Series.str.normalize(form)</li>
+<li>Series.str.pad(width[, side, fillchar])</li>
+<li>Series.str.partition([sep, expand])</li>
+<li>Series.str.repeat(repeats)</li>
+<li>Series.str.replace(pat, repl[, n, case, .])</li>
+<li>Series.str.rfind(sub[, start, end])</li>
+<li>Series.str.rindex(sub[, start, end])</li>
+<li>x Series.str.rjust(width[, fillchar])</li>
+<li>Series.str.rpartition([sep, expand])</li>
+<li>Series.str.rstrip([to_strip])</li>
+<li>x Series.str.slice([start, stop, step])</li>
+<li>Series.str.slice_replace([start, stop, repl])</li>
+<li>x Series.str.split([pat, n, expand])</li>
+<li>Series.str.rsplit([pat, n, expand])</li>
+<li>x Series.str.startswith(pat[, na])</li>
+<li>x Series.str.strip([to_strip])</li>
+<li>Series.str.swapcase()</li>
+<li>Series.str.title()</li>
+<li>Series.str.translate(table)</li>
+<li>x Series.str.upper()</li>
+<li>Series.str.wrap(width, **kwargs)</li>
+<li>Series.str.zfill(width)</li>
+<li>Series.str.isalnum()</li>
+<li>Series.str.isalpha()</li>
+<li>x Series.str.isdigit()</li>
+<li>x Series.str.isspace()</li>
+<li>x Series.str.islower()</li>
+<li>x Series.str.isupper()</li>
+<li>Series.str.istitle()</li>
+<li>Series.str.isnumeric()</li>
+<li>Series.str.isdecimal()</li>
+<li>Series.str.get_dummies([sep])</li>
+</ul>
 </div>
 </div>
 

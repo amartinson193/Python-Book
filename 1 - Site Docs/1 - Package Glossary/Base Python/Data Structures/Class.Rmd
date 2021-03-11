@@ -1,0 +1,130 @@
+---
+title: "Class"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes
+  
+Inheritance Python  
+  
+* Example 1 
+
+```
+user super():  
+
+class Person: 
+
+  def __init__(self, fname, lname): 
+
+    self.firstname = fname 
+
+    self.lastname = lname 
+
+    self.random = 1 
+
+ 
+
+  def printname(self): 
+
+    print(self.firstname, self.lastname) 
+
+ 
+
+class Student(Person): 
+
+  def __init__(self, fname, lname, year): 
+
+    super().__init__(fname, lname) 
+
+    self.graduationyear = year 
+
+ 
+
+x = Student("Mike", "Olsen", 2019) 
+
+print(x.graduationyear, x.random) 
+```
+
+* Example 2 (Passing the class name explicitly - this is not needed in Python 3.3+, see: https://stackoverflow.com/questions/22744102/pyqt4-why-do-we-need-to-pass-class-name-in-call-to-super   
+  
+```
+class Person: 
+
+  def __init__(self, fname, lname): 
+
+    self.firstname = fname 
+
+    self.lastname = lname 
+
+    self.random = 1 
+
+ 
+
+  def printname(self): 
+
+    print(self.firstname, self.lastname) 
+
+ 
+
+class Student(Person): 
+
+  def __init__(self, fname, lname, year): 
+
+    super(student, self).__init__(fname, lname) 
+
+    self.graduationyear = year 
+
+ 
+
+x = Student("Mike", "Olsen", 2019) 
+
+print(x.graduationyear, x.random) 
+```
+  
+* Example 3 
+  
+```
+class GenericClass: 
+    version = 1 
+     
+    def __init__(self): 
+        pass 
+ 
+
+class CompositeClass: 
+    def __init__(self): 
+        self.generic = GenericClass() 
+        self.version = self.generic.version 
+
+c = CompositeClass() 
+print(c.version) 
+``` 
+
+* Example 4
+  
+```
+class Base:  
+
+def __init__(self, arg1 = "argument one"):  
+self.arg1 = arg1  
+
+class Derived(Base):  
+pass  
+
+b = Base()  
+print b.arg1  
+
+d = Derived()  
+print d.arg1  
+  
+e = Derived("argument changed!")  
+print e.arg1 
+```
+
+Init is a constructor method  
+  
+* If you always need to require initialization variables, you use the init constructor 

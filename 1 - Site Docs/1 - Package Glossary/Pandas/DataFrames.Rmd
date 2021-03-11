@@ -920,4 +920,5 @@ DataFrame.value_counts(subset=None, normalize=False, sort=True, ascending=False)
      
 **Notes**
 * Series value counts has diff params 
+* Double-check that this doesn't only work for Series
 </details>

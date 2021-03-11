@@ -1,0 +1,20 @@
+---
+title: "Base Python"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+
+## Cheatsheets
+
+
+## Documentation
+
+
+## Learning Resources
+
+## Attributes
+    
+

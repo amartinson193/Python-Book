@@ -1,0 +1,27 @@
+---
+title: "Pandas Index"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes
+
+# Attributes
+  
+* .values
+  * returns the values of the index in a list
+  
+# Methods
+
+## G
+<details> --------------------------------------------
+<summary>get_level_values</summary>
+  
+Index.get_level_values(level)   
+[Docs](https://pandas.pydata.org/docs/reference/api/pandas.Index.get_level_values.html?highlight=get_level#pandas.Index.get_level_values)
+  
+</details>
+

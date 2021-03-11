@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Dictionaries</title>
+
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Python Book</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="../../../index.html">Home</a>
+</li>
+<li>
+  <a href="../../../Base-Python.html">Base Python Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Dictionaries</h1>
+
+</div>
+
+
+<hr />
+<div id="notes" class="section level1">
+<h1>Notes</h1>
+<ul>
+<li>Sorting dictionaries
+<ul>
+<li><a href="https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value\" class="uri">https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value\</a></li>
+</ul></li>
+<li>d[key]
+<ul>
+<li>Return the item of d with key key.</li>
+</ul></li>
+<li>d[key] = value *Set d[key] to value.</li>
+</ul>
+<div id="keywords" class="section level3">
+<h3>Keywords</h3>
+<ul>
+<li>In
+<ul>
+<li>Dictionary keyword for checking if a key exists in a dictionary</li>
+</ul></li>
+<li>Not In
+<ul>
+<li>Dictionary keywords for checking if a key is not in a dictionary</li>
+</ul></li>
+<li>del d[key]</li>
+</ul>
+</div>
+<div id="functions" class="section level3">
+<h3>Functions</h3>
+<ul>
+<li>iter(d)
+<ul>
+<li>Return an iterator over the keys of the dictionary. This is a shortcut for iter(d.keys()).</li>
+</ul></li>
+<li>list(d)
+<ul>
+<li>Return a list of all the keys used in the dictionary d. </li>
+</ul></li>
+<li>len(d)
+<ul>
+<li>Return the number of items in the dictionary d. </li>
+</ul></li>
+</ul>
+</div>
+<div id="methods" class="section level3">
+<h3>Methods</h3>
+<p>(Put an x next to items I know/have used before)</p>
+</div>
+<div id="class-methods" class="section level3">
+<h3>Class Methods</h3>
+<ul>
+<li>fromkeys(iterable[, value])
+<ul>
+<li>Create a new dictionary with keys from iterable and values set to value.</li>
+<li>fromkeys() is a class method that returns a new dictionary. value defaults to None. All of the values refer to just a single instance, so it generally doesn’t make sense for value to be a mutable object such as an empty list. To get distinct values, use a dict comprehension instead.</li>
+</ul></li>
+</ul>
+</div>
+<div id="instance-methods" class="section level3">
+<h3>Instance Methods</h3>
+<div id="c" class="section level4">
+<h4>C</h4>
+<ul>
+<li>clear()
+<ul>
+<li>Remove all items from the dictionary.</li>
+</ul></li>
+<li>copy()
+<ul>
+<li>Return a shallow copy of the dictionary.</li>
+</ul></li>
+</ul>
+</div>
+<div id="g" class="section level4">
+<h4>G</h4>
+<ul>
+<li>x get(key[, default])
+<ul>
+<li>Return the value for key if key is in the dictionary, else default. If default is not given, it defaults to None, so that this method never raises a KeyError.
+<ul>
+<li>The method to get a key and return default if not there</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="i" class="section level4">
+<h4>I</h4>
+<ul>
+<li>item()<br />
+</li>
+<li>items()
+<ul>
+<li>Return a new view of the dictionary’s items ((key, value) pairs). See the documentation of view objects.</li>
+<li>Iterate over a dictionary</li>
+</ul>
+<pre><code>  * For key, value in Dictionary.items(): 
+  * Return key, value </code></pre>
+<ul>
+<li>Remove and return a (key, value) pair from the dictionary. Pairs are returned in LIFO order.</li>
+</ul></li>
+</ul>
+</div>
+<div id="k" class="section level4">
+<h4>K</h4>
+<ul>
+<li>keys()
+<ul>
+<li>Return a new view of the dictionary’s keys. See the documentation of view objects.</li>
+</ul></li>
+</ul>
+</div>
+<div id="p" class="section level4">
+<h4>P</h4>
+<ul>
+<li>pop(key[, default])
+<ul>
+<li>If key is in the dictionary, remove it and return its value, else return default. If default is not given and key is not in the dictionary, a KeyError is raised.<br />
+</li>
+</ul></li>
+<li>popitem()
+<ul>
+<li>is useful to destructively iterate over a dictionary, as often used in set algorithms. If the dictionary is empty, calling popitem() raises a KeyError.</li>
+<li>Changed in version 3.7: LIFO order is now guaranteed. In prior versions, popitem() would return an arbitrary key/value pair.</li>
+</ul></li>
+</ul>
+</div>
+<div id="r" class="section level4">
+<h4>R</h4>
+<ul>
+<li>reversed(d)
+<ul>
+<li>Return a reverse iterator over the keys of the dictionary. This is a shortcut for reversed(d.keys()).</li>
+</ul></li>
+</ul>
+</div>
+<div id="s" class="section level4">
+<h4>S</h4>
+<ul>
+<li>x setdefault(key[, default])
+<ul>
+<li>Create a value/return a result</li>
+<li>If key is in the dictionary, return its value. If not, insert key with a value of default and return default. default defaults to None.</li>
+</ul></li>
+</ul>
+</div>
+<div id="u" class="section level4">
+<h4>U</h4>
+<ul>
+<li>x update([other])
+<ul>
+<li><a href="https://docs.python.org/3.8/library/stdtypes.html?highlight=update#dict.update" class="uri">https://docs.python.org/3.8/library/stdtypes.html?highlight=update#dict.update</a></li>
+<li>Combine dictionaries</li>
+</ul></li>
+</ul>
+<pre><code>dict1 = {&#39;one&#39;: 1, &#39;two&#39;: 2} 
+dict2 = {&#39;three&#39;: 3, &#39;four&#39;: 4} 
+dict1.update(dict2) 
+print(dict1) </code></pre>
+<pre><code>* Update/Add to a dictionary 
+    * I still prefer dictionary[key]=value 
+    * Dictionary.update({key:value}) 
+    * E.g. car.update({&quot;color&quot;: &quot;White&quot;}) 
+        * https://www.w3schools.com/python/ref_dictionary_update.asp 
+    
+* Update the dictionary with the key/value pairs from other, overwriting existing keys. Return None. 
+* update() accepts either another dictionary object or an iterable of key/value pairs (as tuples or other iterables of length two). If keyword arguments are specified, the dictionary is then updated with those key/value pairs: d.update(red=1, blue=2). </code></pre>
+</div>
+<div id="v" class="section level4">
+<h4>V</h4>
+<ul>
+<li>x values()
+<ul>
+<li>Lists all of the values in a dictionary</li>
+<li>Return a new view of the dictionary’s values. See the documentation of view objects.</li>
+<li>An equality comparison between one dict.values() view and another will always return False. This also applies when comparing dict.values() to itself:</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
