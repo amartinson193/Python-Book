@@ -1,0 +1,280 @@
+---
+title: "Lists"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes   
+    
+[Python.org Documentation](https://docs.python.org/3/tutorial/datastructures.html)
+    
+* List objects are not iterators, need to use iter() first 
+  * Generators are iterators 
+* [Difference between arange and linspace](https://stackoverflow.com/questions/62106028/what-is-the-difference-between-np-linspace-and-np-arange)
+  * Linspace infers the number of steps, arange asks you for the step 
+  * Linspace and range seem like the exact same thing 
+* list is a compound data type, whereas numpy arrays are not 
+* When slicing a list, the start = inclusive and end = exclusive 
+* Adding two lists concatenates them, adding two numpy arrays adds them together 
+  * You can't subtract two lists, you need to use sets instead 
+* Read in a file as lists 
+  * First use readlines, this will return one string for each line that ends with a \n (newline character 
+  * Use open with the split method, splitting at the commas for a csv (comma separated file) 
+* Collection.deque is useful with lists 
+      
+ <br>
+ <br>
+    
+# Instance Methods   
+
+### A
+    
+<details> --------------------------------------------
+<summary>-- append</summary>
+    
+list.append(x) 
+
+**Notes**
+    
+* Add an item to the end of the list. Equivalent to a[len(a):] = [x]. 
+    
+</details>
+
+### C
+    
+<details> --------------------------------------------
+<summary>-- clear</summary>
+    
+list.clear() 
+    
+**Notes**
+    
+Remove all items from the list. Equivalent to del a[:].   
+    
+</details>
+    
+<details> --------------------------------------------
+<summary>-- copy</summary>
+</details>
+    
+<details> --------------------------------------------
+<summary>-- count</summary>
+    
+list.count(x)   
+
+**Notes**
+    
+* Return the number of times x appears in the list. 
+    
+</details>
+    
+### E 
+
+<details> --------------------------------------------
+<summary>-- extend</summary>
+    
+list.extend(iterable) 
+    
+**Notes**
+    
+* Extend the list by appending all the items from the iterable. Equivalent to a[len(a):] = iterable. 
+* Takes another list or another data type such as a tuple or set (they are automatically converted to lists) 
+* https://www.programiz.com/python-programming/methods/list/extend 
+    
+</details>
+
+### I
+    
+<details> --------------------------------------------
+<summary>-- index</summary>
+    
+list.index(x[, start[, end]]) 
+    
+**Notes**
+    
+* Return zero-based index in the list of the first item whose value is equal to x. Raises a ValueError if there is no such item. The optional arguments start and end are interpreted as in the slice notation and are used to limit the search to a particular subsequence of the list. The returned index is computed relative to the beginning of the full sequence rather than the start argument.     
+    
+</details>
+    
+<details> --------------------------------------------
+<summary>-- insert</summary>
+    
+list.insert(i, x) 
+    
+**Notes**
+    
+* Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).     
+
+</details>
+
+### P
+
+<details> --------------------------------------------
+<summary>-- pop</summary>
+    
+list.pop([i]) 
+    
+**Notes**
+    
+* Remove the item at the given position in the list, and return it. If no index is specified, a.pop() removes and returns the last item in the list. (The square brackets around the i in the method signature denote that the parameter is optional, not that you should type square brackets at that position. You will see this notation frequently in the Python Library Reference.)     
+</details>
+
+### R
+
+<details> --------------------------------------------
+<summary>-- remove</summary>
+    
+list.remove(x) 
+    
+**Notes**
+  
+* Remove the first item from the list whose value is equal to x. It raises a ValueError if there is no such item.   
+    
+</details>
+    
+<details> --------------------------------------------
+<summary>-- reverse</summary>
+    
+list.reverse() 
+    
+**Notes**
+    
+* Reverse the elements of the list in place.     
+* First instantiate the list, then reverse it. Don't try to set the reversed list to a variable, otherwise it returns a NoneType.  
+* This is another way to reverse a list
+  * x[::-1]
+    
+</details>    
+
+
+### S
+    
+<details> --------------------------------------------
+<summary>-- sort</summary>
+    
+**Notes**
+    
+* Sort the items of the list in place (the arguments can be used for sort customization, see sorted() for their explanation). 
+</details>
+    
+ <br>
+ <br>
+    
+# List Comprehensions
+    
+Basic List Comprehensions 
+    
+* https://www.programiz.com/python-programming/list-comprehension 
+    
+```
+new_nums = [num + 1 for num in nums]
+
+for num in  nums:
+  new_nums.append(num + 1)
+print(new_nums)
+```
+    
+* Can actually be done over any iterable
+* Structure: output, variable, iterable
+  * [ output expression for iterator variable in iterable if predicate expression ] 
+    
+### Nested List Comprehensions
+    
+```
+pairs_2 = [(num1, num2) for num1 in range(0,2) for num2 in range(6,8)]
+print(pairs_2)
+```
+    
+Here is how you would create a matrix
+
+```
+matrix = [[col for col in range(0,5)] for row in range(0,5)] 
+```
+    
+Else condition on the iterable
+    
+* [x ** 2 if x % 2 == 0 else 0 for x in ls  ] 
+* The if statement is moved to the middle if using a else statement, which I find really weird 
+    
+```
+>>> matrix = [ 
+...    [1, 2, 3, 4], 
+...    [5, 6, 7, 8], 
+...    [9, 10, 11, 12], 
+... ] 
+ 
+
+The following list comprehension will transpose rows and columns: 
+
+>>>>>> [[row[i] for row in matrix] for i in range(4)] 
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]] 
+ 
+
+As we saw in the previous section, the nested listcomp is evaluated in the context of the for that follows it, so this example is equivalent to: 
+
+>>>>>> transposed = [] 
+>>> for i in range(4): 
+...    transposed.append([row[i] for row in matrix]) 
+... 
+>>> transposed 
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]] 
+```
+    
+Always try and use built in functions instead of complex flow statements in order to simplify code. The above code could be done using the zip function. 
+    
+### Dictionary Comprehensions
+    
+Use curly braces instead of brackets and you need a key value pair 
+    
+```
+pos_neg = {num: -num for num in range(9)}
+print(pos_neg)
+```
+    
+Multiple data source list comprehensions
+    
+* You can include one iterable at the end, but include another iterable at the beginning in a function and it should work out 
+* e.g.
+    
+```
+list_of_dicts = [list2dict(feature_names, sublist) for sublist in row_lists]
+```
+    
+Note: Don't forget you can unpack lists using the \* operator for lists and \** for dictionaries 
+    
+* This means they can be iterated through     
+    
+https://www.programiz.com/python-programming/list-comprehension     
+    
+If a queue is needed, use collections.deque which was designed to have fast appends and pops from both ends. For example: 
+    
+E.g. 
+    
+```    
+>>> from collections import deque 
+ 
+
+>>> queue = deque(["Eric", "John", "Michael"]) 
+ 
+
+>>> queue.append("Terry")           # Terry arrives 
+ 
+
+>>> queue.append("Graham")          # Graham arrives 
+ 
+
+>>> queue.popleft()                 # The first to arrive now leaves 
+'Eric' 
+ 
+
+>>> queue.popleft()                 # The second to arrive now leaves 
+'John' 
+ 
+
+>>> queue                           # Remaining queue in order of arrival 
+deque(['Michael', 'Terry', 'Graham'])     
+```
+  

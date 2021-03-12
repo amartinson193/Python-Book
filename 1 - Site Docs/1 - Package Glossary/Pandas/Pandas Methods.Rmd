@@ -1,0 +1,162 @@
+---
+title: "Pandas Methods"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes
+
+<br>
+<br>
+<br>
+<br>    
+    
+    
+# Methods
+    
+(Put an -- next to items you already know)
+        
+------------------------------------------------------------------
+
+<br>
+<br>    
+    
+## Class Methods
+    
+    
+<details> --------------------------------------------
+<summary>ExcelFile</summary>  
+    
+[Docs](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html?highlight=excelfile)
+    
+**Notes**
+    
+* Can also be used as a context manager 
+* Attributes 
+  * Sheet_name = list 
+    * Gives you a list of sheet names   
+    
+</details>    
+
+<br>
+<br>
+
+## ExcelFile Instance Methods
+    
+<details> --------------------------------------------
+<summary>parse</summary>      
+    
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.ExcelFile.parse.html?highlight=excelfile)    
+    
+ExcelFile.parse(sheet_name=0, header=0, names=None, index_col=None, usecols=None, squeeze=False, converters=None, true_values=None, false_values=None, skiprows=None, nrows=None, na_values=None, parse_dates=False, date_parser=None, thousands=None, comment=None, skipfooter=0, convert_float=True, mangle_dupe_cols=True, **kwds)     
+    
+</details> 
+
+<br>
+<br>
+
+## Pandas Methods - Files
+    
+<details> --------------------------------------------
+<summary>read_excel</summary>
+    
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html?highlight=read_excel#pandas.read_excel)     
+    
+pandas.read_excel(io, sheet_name=0, header=0, names=None, index_col=None, usecols=None, squeeze=False, dtype=None, engine=None, converters=None, true_values=None, false_values=None, skiprows=None, nrows=None, na_values=None, keep_default_na=True, na_filter=True, verbose=False, parse_dates=False, date_parser=None, thousands=None, comment=None, skipfooter=0, convert_float=True, mangle_dupe_cols=True) 
+    
+**Parameters**
+    
+* Sheet_name = string; pass None to get all sheets 
+* Skiprows = list-like 
+  * So to skip the first row, put [1] and not 1. Actually to skips 4 rows, you would use 4. To skip only the fourth row, you would use [4] 
+* Names = array-like, default None 
+  * List of column names to use. If file contains no header row, then you should explicitly pass header=None. 
+* Header = int 
+  * None for no index     
+**Notes**
+    
+* Read an Excel file into a pandas DataFrame. 
+* Supports xls, xlsx, xlsm, xlsb, odf, ods and odt file extensions read from a local filesystem or URL. Supports an option to read a single sheet or a list of sheets. 
+* Turns it into a dictionary     
+    
+</details>
+
+<details> --------------------------------------------
+<summary>read_sql_query</summary> 
+    
+**Notes**
+    
+* Sql_string; string
+* Engine = database connection
+  * E.g.
+  * engine = create_engine('sqlite://Northwind.sqlite')
+      
+</details>
+    
+<details> --------------------------------------------
+<summary>-- read_csv</summary> 
+
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html?highlight=read_csv#pandas.read_csv)
+
+</details>
+    
+<details> --------------------------------------------
+<summary>read_hdf</summary> 
+    
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_hdf.html?highlight=read%20hdf#pandas.read_hdf)
+    
+pandas.read_hdf(path_or_buf, key=None, mode='r', errors='strict', where=None, start=None, stop=None, columns=None, iterator=False, chunksize=None, **kwargs)
+    
+</details>
+    
+<details> --------------------------------------------
+<summary>-- read_json</summary> 
+        
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html)  
+    
+pandas.read_json(path_or_buf=None, orient=None, typ='frame', dtype=None, convert_axes=None, convert_dates=True, keep_default_dates=True, numpy=False, precise_float=False, date_unit=None, encoding=None, lines=False, chunksize=None, compression='infer', nrows=None)    
+    
+**Parameters**
+    
+* path_or_buf
+  * a valid JSON str, path object or file-like object
+* orient = str
+    
+```
+'split' : dict like {index -> [index], columns -> [columns], data -> [values]} 
+
+'records' : list like [{column -> value}, ... , {column -> value}] 
+
+'index' : dict like {index -> {column -> value}} 
+
+'columns' : dict like {column -> {index -> value}} 
+
+'values' : just the values array 
+```
+        
+</details>        
+        
+<details> --------------------------------------------
+<summary>-- read_pickle</summary> 
+    
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_pickle.html )   
+    
+pandas.read_pickle(filepath_or_buffer, compression='infer') 
+    
+**Parameters**
+    
+* filepath_or_buffer = str, path object or file-like object 
+    
+</details>
+    
+<details> --------------------------------------------
+    
+<summary>read_stata</summary>    
+    
+[Docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_stata.html)    
+
+</details> 
+  

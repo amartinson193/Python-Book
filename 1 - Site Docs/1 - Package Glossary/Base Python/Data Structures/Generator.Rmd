@@ -1,0 +1,25 @@
+---
+title: "Generators"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes   
+
+* Same as list comprehension, except put in parenthesis instead of brackets
+  * This creates a generator, which is an iterable and you can treat like most other iterables
+* This doesn't store the result in memory, but rather stores an iterable. This is less resource-intensive since it doesn't store a huge object in memory 
+* This is how you create a generator function 
+
+```
+def num_sequence(n):
+"""Generate values from 0 to n."""
+  i = 0
+  while i < n:
+    yield i
+    i += 1
+
+```

@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "207246507",
+    "hash" : "0",
     "id" : "C2C13FBA",
-    "lastKnownWriteTime" : 1615473037,
-    "last_content_update" : 1615473037884,
+    "lastKnownWriteTime" : 1615558813,
+    "last_content_update" : 1615558813,
     "path" : "~/Github/Python-Book/1 - Site Docs/_site.yml",
     "project_path" : "_site.yml",
     "properties" : {
         "cursorPosition" : "19,77",
-        "scrollLine" : "4"
+        "scrollLine" : "0"
     },
     "relative_order" : 2,
     "source_on_save" : false,

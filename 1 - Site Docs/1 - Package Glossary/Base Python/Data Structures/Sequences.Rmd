@@ -1,0 +1,14 @@
+---
+title: "Sequences"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes   
+    
+https://en.wikibooks.org/wiki/Python_Programming/Sequences 
+    
+Sequences allow you to store multiple values in an organized and efficient fashion. There are seven sequence types: strings, Unicode strings, lists, tuples, bytearrays, buffers, and xrange objects. Dictionaries and sets are containers for sequential data.     

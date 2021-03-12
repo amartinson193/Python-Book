@@ -1,0 +1,209 @@
+---
+title: "File Object"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes   
+    
+[Python.org Documentation](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
+    
+Flat files are files that have one row per observation 
+    
+* E.g. csv's 
+    
+Pickel is a type of file native to Python and serializes the data (converts it into 1's and 0's)     
+
+# Attributes
+    
+Source: https://www.tutorialspoint.com/python/python_files_io.htm
+        
+* file.closed 
+  * Returns true if file is closed, false otherwise. 
+* file.mode 
+  * Returns access mode with which file was opened. 
+* file.name 
+  * Returns name of the file. 
+* file.softspace 
+  * Returns false if space explicitly required with print, true otherwise. 
+    
+### File Types
+    
+Pickel (.pkl) 
+    
+* Binary. Read into Python using file.open(pickelfilenamehere, 'rb') 
+    
+HDF5 
+    
+STATA 
+    
+* .dta 
+    
+SAS 
+    
+* S.SAS7BDAT 
+    
+MATLAB 
+    
+* .mat file 
+    
+JSON 
+    
+* .json 
+* Values  will always be stored in a string format     
+    
+<br>
+<br>
+
+# Instance Methods
+    
+(Put an -- next to items you already know)
+    
+## C
+
+<details> --------------------------------------------
+<summary>-- close</summary>
+</details>    
+    
+## O
+    
+<details> --------------------------------------------
+<summary>-- open</summary>
+  
+**Notes**
+    
+Source:https://www.tutorialspoint.com/python/python_files_io.htm     
+    
+```
+
+1 
+
+r 
+
+Opens a file for reading only. The file pointer is placed at the beginning of the file. This is the default mode. 
+
+2 
+
+rb 
+
+Opens a file for reading only in binary format. The file pointer is placed at the beginning of the file. This is the default mode. 
+
+E.g. use when opening a pickel file since it is serialized (in binary format) 
+
+3 
+
+r+ 
+
+Opens a file for both reading and writing. The file pointer placed at the beginning of the file. 
+
+4 
+
+rb+ 
+
+Opens a file for both reading and writing in binary format. The file pointer placed at the beginning of the file. 
+
+5 
+
+w 
+
+Opens a file for writing only. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing. 
+
+6 
+
+wb 
+
+Opens a file for writing only in binary format. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing. 
+
+7 
+
+w+ 
+
+Opens a file for both writing and reading. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing. 
+
+8 
+
+wb+ 
+
+Opens a file for both writing and reading in binary format. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing. 
+
+9 
+
+a 
+
+Opens a file for appending. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing. 
+
+10 
+
+ab 
+
+Opens a file for appending in binary format. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing. 
+
+11 
+
+a+ 
+
+Opens a file for both appending and reading. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing. 
+
+12 
+
+ab+ 
+
+Opens a file for both appending and reading in binary format. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing. 
+
+```
+    
+</details>
+    
+## R
+  
+<details> --------------------------------------------
+<summary>-- read</summary>
+    
+**Notes**
+    
+* read the entire file
+    
+</details>
+    
+<details> --------------------------------------------
+<summary>-- readline</summary>
+    
+**Notes**
+    
+* Read in only 1 line at a time 
+  * Use readline instead of readlines 
+* Sort of like the next() function, will return the next line every time it is called. Will return just one letter at a time if looped over 
+    
+</details>
+    
+<details> --------------------------------------------
+<summary>-- readlines</summary>
+    
+**Notes**
+    
+* This method returns a list that is comma-separated for each line 
+* The difference from read is that there is one comma per line, where read looks at each character and will return each character if iterated over 
+
+</details>
+
+## S
+    
+<details> --------------------------------------------
+<summary>seek</summary>
+</details>
+    
+## T
+    
+<details> --------------------------------------------
+<summary>tell</summary>
+</details>
+    
+## W
+
+<details> --------------------------------------------
+<summary>write</summary>
+
+</details.

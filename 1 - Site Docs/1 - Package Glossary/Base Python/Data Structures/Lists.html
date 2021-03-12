@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Lists</title>
+
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Python Book</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="../../../index.html">Home</a>
+</li>
+<li>
+  <a href="../../../Base-Python.html">Base Python Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Lists</h1>
+
+</div>
+
+
+<hr />
+<div id="notes" class="section level1">
+<h1>Notes</h1>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html">Python.org Documentation</a></p>
+<ul>
+<li>List objects are not iterators, need to use iter() first
+<ul>
+<li>Generators are iterators</li>
+</ul></li>
+<li><a href="https://stackoverflow.com/questions/62106028/what-is-the-difference-between-np-linspace-and-np-arange">Difference between arange and linspace</a>
+<ul>
+<li>Linspace infers the number of steps, arange asks you for the step</li>
+<li>Linspace and range seem like the exact same thing</li>
+</ul></li>
+<li>list is a compound data type, whereas numpy arrays are not</li>
+<li>When slicing a list, the start = inclusive and end = exclusive</li>
+<li>Adding two lists concatenates them, adding two numpy arrays adds them together
+<ul>
+<li>You can’t subtract two lists, you need to use sets instead</li>
+</ul></li>
+<li>Read in a file as lists
+<ul>
+<li>First use readlines, this will return one string for each line that ends with a (newline character</li>
+<li>Use open with the split method, splitting at the commas for a csv (comma separated file)</li>
+</ul></li>
+<li>Collection.deque is useful with lists</li>
+</ul>
+<p><br> <br></p>
+</div>
+<div id="instance-methods" class="section level1">
+<h1>Instance Methods</h1>
+<div id="a" class="section level3">
+<h3>A</h3>
+<details>
+<hr />
+<summary>
+– append
+</summary>
+<p>list.append(x)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Add an item to the end of the list. Equivalent to a[len(a):] = [x].</li>
+</ul>
+</details>
+</div>
+<div id="c" class="section level3">
+<h3>C</h3>
+<details>
+<hr />
+<summary>
+– clear
+</summary>
+<p>list.clear()</p>
+<p><strong>Notes</strong></p>
+<p>Remove all items from the list. Equivalent to del a[:].</p>
+</details>
+<details>
+<hr />
+<summary>
+– copy
+</summary>
+</details>
+<details>
+<hr />
+<summary>
+– count
+</summary>
+<p>list.count(x)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Return the number of times x appears in the list.</li>
+</ul>
+</details>
+</div>
+<div id="e" class="section level3">
+<h3>E</h3>
+<details>
+<hr />
+<summary>
+– extend
+</summary>
+<p>list.extend(iterable)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Extend the list by appending all the items from the iterable. Equivalent to a[len(a):] = iterable.</li>
+<li>Takes another list or another data type such as a tuple or set (they are automatically converted to lists)</li>
+<li><a href="https://www.programiz.com/python-programming/methods/list/extend" class="uri">https://www.programiz.com/python-programming/methods/list/extend</a></li>
+</ul>
+</details>
+</div>
+<div id="i" class="section level3">
+<h3>I</h3>
+<details>
+<hr />
+<summary>
+– index
+</summary>
+<p>list.index(x[, start[, end]])</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Return zero-based index in the list of the first item whose value is equal to x. Raises a ValueError if there is no such item. The optional arguments start and end are interpreted as in the slice notation and are used to limit the search to a particular subsequence of the list. The returned index is computed relative to the beginning of the full sequence rather than the start argument.</li>
+</ul>
+</details>
+<details>
+<hr />
+<summary>
+– insert
+</summary>
+<p>list.insert(i, x)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).</li>
+</ul>
+</details>
+</div>
+<div id="p" class="section level3">
+<h3>P</h3>
+<details>
+<hr />
+<summary>
+– pop
+</summary>
+<p>list.pop(<a href="#i">i</a>)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Remove the item at the given position in the list, and return it. If no index is specified, a.pop() removes and returns the last item in the list. (The square brackets around the i in the method signature denote that the parameter is optional, not that you should type square brackets at that position. You will see this notation frequently in the Python Library Reference.)<br />
+</li>
+</ul>
+</details>
+</div>
+<div id="r" class="section level3">
+<h3>R</h3>
+<details>
+<hr />
+<summary>
+– remove
+</summary>
+<p>list.remove(x)</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Remove the first item from the list whose value is equal to x. It raises a ValueError if there is no such item.</li>
+</ul>
+</details>
+<details>
+<hr />
+<summary>
+– reverse
+</summary>
+<p>list.reverse()</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Reverse the elements of the list in place.<br />
+</li>
+<li>First instantiate the list, then reverse it. Don’t try to set the reversed list to a variable, otherwise it returns a NoneType.<br />
+</li>
+<li>This is another way to reverse a list
+<ul>
+<li>x[::-1]</li>
+</ul></li>
+</ul>
+</details>
+</div>
+<div id="s" class="section level3">
+<h3>S</h3>
+<details>
+<hr />
+<summary>
+– sort
+</summary>
+<p><strong>Notes</strong></p>
+<ul>
+<li>Sort the items of the list in place (the arguments can be used for sort customization, see sorted() for their explanation).</li>
+</ul>
+</details>
+<p><br> <br></p>
+</div>
+</div>
+<div id="list-comprehensions" class="section level1">
+<h1>List Comprehensions</h1>
+<p>Basic List Comprehensions</p>
+<ul>
+<li><a href="https://www.programiz.com/python-programming/list-comprehension" class="uri">https://www.programiz.com/python-programming/list-comprehension</a></li>
+</ul>
+<pre><code>new_nums = [num + 1 for num in nums]
+
+for num in  nums:
+  new_nums.append(num + 1)
+print(new_nums)</code></pre>
+<ul>
+<li>Can actually be done over any iterable</li>
+<li>Structure: output, variable, iterable
+<ul>
+<li>[ output expression for iterator variable in iterable if predicate expression ]</li>
+</ul></li>
+</ul>
+<div id="nested-list-comprehensions" class="section level3">
+<h3>Nested List Comprehensions</h3>
+<pre><code>pairs_2 = [(num1, num2) for num1 in range(0,2) for num2 in range(6,8)]
+print(pairs_2)</code></pre>
+<p>Here is how you would create a matrix</p>
+<pre><code>matrix = [[col for col in range(0,5)] for row in range(0,5)] </code></pre>
+<p>Else condition on the iterable</p>
+<ul>
+<li>[x ** 2 if x % 2 == 0 else 0 for x in ls ]</li>
+<li>The if statement is moved to the middle if using a else statement, which I find really weird</li>
+</ul>
+<pre><code>&gt;&gt;&gt; matrix = [ 
+...    [1, 2, 3, 4], 
+...    [5, 6, 7, 8], 
+...    [9, 10, 11, 12], 
+... ] 
+ 
+
+The following list comprehension will transpose rows and columns: 
+
+&gt;&gt;&gt;&gt;&gt;&gt; [[row[i] for row in matrix] for i in range(4)] 
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]] 
+ 
+
+As we saw in the previous section, the nested listcomp is evaluated in the context of the for that follows it, so this example is equivalent to: 
+
+&gt;&gt;&gt;&gt;&gt;&gt; transposed = [] 
+&gt;&gt;&gt; for i in range(4): 
+...    transposed.append([row[i] for row in matrix]) 
+... 
+&gt;&gt;&gt; transposed 
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]] </code></pre>
+<p>Always try and use built in functions instead of complex flow statements in order to simplify code. The above code could be done using the zip function.</p>
+</div>
+<div id="dictionary-comprehensions" class="section level3">
+<h3>Dictionary Comprehensions</h3>
+<p>Use curly braces instead of brackets and you need a key value pair</p>
+<pre><code>pos_neg = {num: -num for num in range(9)}
+print(pos_neg)</code></pre>
+<p>Multiple data source list comprehensions</p>
+<ul>
+<li>You can include one iterable at the end, but include another iterable at the beginning in a function and it should work out</li>
+<li>e.g.</li>
+</ul>
+<pre><code>list_of_dicts = [list2dict(feature_names, sublist) for sublist in row_lists]</code></pre>
+<p>Note: Don’t forget you can unpack lists using the * operator for lists and ** for dictionaries</p>
+<ul>
+<li>This means they can be iterated through</li>
+</ul>
+<p><a href="https://www.programiz.com/python-programming/list-comprehension" class="uri">https://www.programiz.com/python-programming/list-comprehension</a></p>
+<p>If a queue is needed, use collections.deque which was designed to have fast appends and pops from both ends. For example:</p>
+<p>E.g.</p>
+<pre><code>&gt;&gt;&gt; from collections import deque 
+ 
+
+&gt;&gt;&gt; queue = deque([&quot;Eric&quot;, &quot;John&quot;, &quot;Michael&quot;]) 
+ 
+
+&gt;&gt;&gt; queue.append(&quot;Terry&quot;)           # Terry arrives 
+ 
+
+&gt;&gt;&gt; queue.append(&quot;Graham&quot;)          # Graham arrives 
+ 
+
+&gt;&gt;&gt; queue.popleft()                 # The first to arrive now leaves 
+&#39;Eric&#39; 
+ 
+
+&gt;&gt;&gt; queue.popleft()                 # The second to arrive now leaves 
+&#39;John&#39; 
+ 
+
+&gt;&gt;&gt; queue                           # Remaining queue in order of arrival 
+deque([&#39;Michael&#39;, &#39;Terry&#39;, &#39;Graham&#39;])     </code></pre>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -24,6 +24,7 @@ output:
 [Python Tips](https://book.pythontips.com/en/latest/enumerate.html)    
 [The Pragmatic Programmers](https://medium.com/pragmatic-programmers)   
 [Think Python](http://greenteapress.com/thinkpython/html/index.html)    
+[The Python Handbook - FreeCodeCamp](https://www.freecodecamp.org/news/the-python-handbook/)
 
 
 ## Learning Resources

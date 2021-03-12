@@ -1,0 +1,154 @@
+---
+title: "Lists"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes   
+    
+[Python.org Documentation](https://docs.python.org/3/library/stdtypes.html?highlight=set#set)    
+    
+* Reasons to use a set
+  * Python also includes a data type for sets. A set is an unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference. 
+* Create a set
+  * x = {1,2,3,4}
+    
+```
+x in s 
+
+Test x for membership in s  
+
+x not in s 
+
+Test x for non-membership in s  
+
+isdisjoint(other) 
+
+Return True if the set has no elements in common with other  Sets are disjoint if and only if their intersection is the empty set  
+
+issubset(other) 
+
+set <= other 
+
+Test whether every element in the set is in other  
+
+set < other 
+
+Test whether the set is a proper subset of other, that is, set <= other and set != other  
+
+issuperset(other) 
+
+set >= other 
+
+Test whether every element in other is in the set  
+
+set > other 
+
+Test whether the set is a proper superset of other, that is, set >= other and set != other. 
+
+union(*others) 
+
+set | other | ... 
+
+Return a new set with elements from the set and all others. 
+
+Notes 
+
+Didn't seem to work 
+
+intersection(*others) 
+
+set & other & ... 
+
+Return a new set with elements common to the set and all others. 
+
+difference(*others) 
+
+set - other - ... 
+
+Return a new set with elements in the set that are not in the others. 
+
+symmetric_difference(other) 
+
+set ^ other 
+
+Return a new set with elements in either the set or other but not both. 
+
+copy() 
+
+Return a shallow copy of the set. 
+
+ 
+
+Note, the non-operator versions of union(), intersection(), difference(), and symmetric_difference(), issubset(), and issuperset() methods will accept any iterable as an argument. In contrast, their operator based counterparts require their arguments to be sets. This precludes error-prone constructions like set('abc') & 'cbs' in favor of the more readable set('abc').intersection('cbs'). 
+```
+    
+ <br>
+ <br>
+    
+# Instance Methods   
+    
+(Put a -- next to items I know/have used before)
+    
+## A
+    
+<details> --------------------------------------------
+<summary>-- add</summary>
+</details>
+    
+## D
+    
+<details> --------------------------------------------
+<summary>-- difference</summary>
+
+**Notes**
+    
+* Find the difference between two sets 
+  * Difference in one set: X.difference(y) 
+  * Difference in two sets: X.difference(y,z) 
+  * Also can use subtraction symbol 
+    * E.g. a - b     
+    
+</details>
+    
+## I
+    
+<details> --------------------------------------------
+<summary>-- intersection</summary>
+
+**Notes**
+    
+* Find the intersection of a set 
+  * X.intersection(y) 
+* Find the intersection of multiple sets 
+  * set_1.intersection(set_2,set_3) 
+  * Also can use ampersand 
+    * E.g. a & b     
+</details>
+
+## R
+    
+<details> --------------------------------------------
+<summary>-- remove</summary>
+
+</details>   
+    
+## U
+    
+<details> --------------------------------------------
+<summary>-- union</summary>
+
+**Notes**
+    
+* Combine two sets 
+  * X.union(y) 
+  * Also can use vertical line  
+    * E..g a | b    
+    
+</details>    
+    
+    
+

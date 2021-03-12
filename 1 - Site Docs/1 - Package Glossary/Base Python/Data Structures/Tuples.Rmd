@@ -1,0 +1,13 @@
+---
+title: "Tuples"
+output: 
+  html_document: 
+    theme: cerulean
+---
+    
+------------------------------------------------------------------
+    
+# Notes   
+    
+Tuples are immutables and use parenthesis    
+  
